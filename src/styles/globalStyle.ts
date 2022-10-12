@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body, button {
-    // TODO : font-family 추가
+    font-family: 'Noto Sans KR', sans-serif;
   }
   
   button {

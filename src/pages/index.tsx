@@ -1,5 +1,4 @@
 import SEO from '@src/components/common/SEO';
-import Link from 'next/link';
 import styled from 'styled-components';
 
 function Home() {
