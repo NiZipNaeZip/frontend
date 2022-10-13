@@ -61,7 +61,7 @@ export default function Register() {
       setRepresentImg={setRepresentImg}
       setNextValid={setNextValid}
     />,
-    <PeopleInformation />,
+    <PeopleInformation setNextValid={setNextValid} />,
     <HomeInformation setNextValid={setNextValid} />,
     <HomePrecuations setNextValid={setNextValid} />,
     <LinkShare setNextValid={setNextValid} />,
@@ -107,6 +107,7 @@ export default function Register() {
 const StFooter = styled.div`
   padding: 0 20px;
   width: 100%;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
   text-align: center;
