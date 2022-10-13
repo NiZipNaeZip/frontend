@@ -1,26 +1,28 @@
 import styled from 'styled-components';
 
 interface IProps {
+  isConfirm: boolean;
   isOpen: boolean;
   title: string;
   content: string;
-  submitContent: string;
-  handleCancle: () => void;
-  handleSubmit: () => void;
+  leftComment: string;
+  rightComment: string;
+  handleRightButton: () => void;
+  handleLeftButton: () => void;
 }
 export default function Modal(props: IProps) {
-  const { isOpen, title, content, submitContent, handleCancle, handleSubmit } = props;
+  const { isOpen, isConfirm, title, content, leftComment, rightComment, handleRightButton, handleLeftButton } = props;
   return (
     <StModalBackground isOpen={isOpen}>
-      <StModalContent>
+      <StModalContent isConfirm={isConfirm}>
         <h5>{title}</h5>
         <pre>{content}</pre>
         <div>
-          <button id="submit" onClick={handleSubmit}>
-            {submitContent}
+          <button id="submit" onClick={handleLeftButton}>
+            {leftComment}
           </button>
-          <button id="cancle" onClick={handleCancle}>
-            취소
+          <button id="cancle" onClick={handleRightButton}>
+            {rightComment}
           </button>
         </div>
       </StModalContent>
@@ -39,7 +41,7 @@ const StModalBackground = styled.div<{ isOpen: boolean }>`
   background-color: rgba(0, 0, 0, 0.4);
   padding: 0 20px;
 `;
-const StModalContent = styled.div`
+const StModalContent = styled.div<{ isConfirm: boolean }>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,10 +80,11 @@ const StModalContent = styled.div`
       border-radius: 10px;
     }
     #submit {
-      background-color: #ef4040;
-      color: white;
+      background-color: ${({ isConfirm }) => (isConfirm ? '#ef4040' : '#FFB84D')};
+      color: ${({ isConfirm }) => (isConfirm ? '#white' : 'black')};
     }
     #cancle {
+      background-color: ${({ isConfirm }) => (isConfirm ? '#ececec' : '#13CC89')};
       background-color: #ececec;
     }
   }

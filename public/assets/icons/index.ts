@@ -8,3 +8,4 @@ export { default as icCheckEmpty } from './ic_check_empty.svg';
 export { default as icCheckActive } from './ic_check_active.svg';
 export { default as icCloseBg } from './ic_close_bg.svg';
 export { default as icAlert } from './ic_alert.svg';
+export { default as icLocation } from './ic_location.svg';
