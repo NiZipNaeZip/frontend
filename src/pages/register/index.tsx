@@ -1,11 +1,12 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import styled from 'styled-components';
 import Button from '@src/components/Register/Button';
 import ImageDiv from '@src/components/common/ImageDiv';
-import SelectHomeImage from '@src/components/Register/SelectHomeImage';
-import { icBack } from 'public/assets/icons';
-import { useState } from 'react';
-import styled from 'styled-components';
 import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
-import { useRouter } from 'next/router';
+import SelectHomeImage from '@src/components/Register/SelectHomeImage';
+import PeopleInformation from '@src/components/Register/PeopleInformation';
+import { icBack } from 'public/assets/icons';
 
 export default function Register() {
   const router = useRouter();
@@ -51,6 +52,7 @@ export default function Register() {
       setRepresentImg={setRepresentImg}
       setNextValid={setNextValid}
     />,
+    <PeopleInformation />,
   ];
   return (
     <StRegister>
