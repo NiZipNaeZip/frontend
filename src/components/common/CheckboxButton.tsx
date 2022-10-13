@@ -43,7 +43,6 @@ const StTextBox = styled.div`
   width: 100%;
   flex: 1;
   text-align: left;
-  word-break: keep-all;
 
   & > div:first-child {
     font-weight: 500;

@@ -37,11 +37,12 @@ function BottomSheet(props: BottomSheetProps) {
 export default BottomSheet;
 
 const StModalBackground = styled.div`
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+  max-width: 420px;
   height: 100%;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.4);
