@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import HouseType from './HouseType';
 import Counter from './Counter';
 import CohabitInformation from './CohabitInformation';
 
@@ -6,6 +7,7 @@ function PeopleInformation() {
   return (
     <div>
       <StTitle>어떤 집인가요?</StTitle>
+      <HouseType />
       <StLine />
       <StTitle>몇 명이 지낼 수 있나요?</StTitle>
       <Counter />
