@@ -1,7 +1,6 @@
 import Button from '@src/components/Register/Button';
 import ImageDiv from '@src/components/common/ImageDiv';
-import SelectImage from '@src/components/Register/SelectImage';
-import UploadImage from '@src/components/Register/UploadImage';
+import SelectHomeImage from '@src/components/Register/SelectHomeImage';
 import { icBack } from 'public/assets/icons';
 import { useState } from 'react';
 import styled from 'styled-components';
@@ -17,10 +16,18 @@ export default function Register() {
   const [nextValid, setNextValid] = useState<boolean>(false);
 
   const handleClickPrevious = () => {
+    //todo : 페이지 인덱스에 따라 다르게 동작
     if (pageIdx === 0) {
-      router.back();
+      setFiles([]);
+      setImages([]);
+      setNextValid(false);
       return;
     }
+    // if (pageIdx === 0) {
+    //   router.back();
+    //   return;
+    // }
+    setNextValid(false);
     setPageIdx((prev) => prev - 1);
   };
 
@@ -36,16 +43,14 @@ export default function Register() {
 
   const pages = [
     <PlaceInputContainer setNextValid={setNextValid} />,
-    files.length === 0 ? (
-      <UploadImage setFiles={setFiles} setImages={setImages} />
-    ) : (
-      <SelectImage
-        images={images}
-        representImg={representImg}
-        setRepresentImg={setRepresentImg}
-        setNextValid={setNextValid}
-      />
-    ),
+    <SelectHomeImage
+      setFiles={setFiles}
+      setImages={setImages}
+      images={images}
+      representImg={representImg}
+      setRepresentImg={setRepresentImg}
+      setNextValid={setNextValid}
+    />,
   ];
   return (
     <StRegister>
@@ -58,8 +63,8 @@ export default function Register() {
           <span id="cancle">X</span>
         </div>
       </StHeader>
-      {pages[pageIdx]}
-      {pageIdx !== pages.length + 1 ? (
+      <StMainContent>{pages[pageIdx]}</StMainContent>
+      {pageIdx + 1 !== pages.length ? (
         <Button name="다음으로" handleClick={handleClickNext} nextValid={nextValid} />
       ) : (
         <Button name="등록완료" handleClick={handleClickSubmit} nextValid={nextValid} />
@@ -68,6 +73,11 @@ export default function Register() {
   );
 }
 
+const StMainContent = styled.div`
+  height: 680px;
+  overflow: auto;
+  margin-bottom: 108px;
+`;
 const StRegister = styled.div``;
 const StHeader = styled.div`
   display: flex;
