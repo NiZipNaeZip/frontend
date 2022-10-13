@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { icClose } from 'public/assets/icons';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ImageDiv from '../common/ImageDiv';
 
@@ -9,6 +10,17 @@ interface BottomSheetProps {
 
 function BottomSheet(props: BottomSheetProps) {
   const { closeModal } = props;
+  const [startDate, setStartDate] = useState('');
+  const [lastDate, setLastDate] = useState('');
+  const [nights, setNights] = useState(0);
+  const [days, setDays] = useState(0);
+
+  useEffect(() => {
+    const startNumber = Number(startDate.slice(-2));
+    const lastNumber = Number(lastDate.slice(-2));
+    setNights(lastNumber - startNumber - 1);
+    setDays(lastNumber - startNumber);
+  }, [startDate, lastDate]);
 
   return (
     <>
@@ -19,12 +31,16 @@ function BottomSheet(props: BottomSheetProps) {
         </button>
         <StBottomSheetTitle>
           <div>언제 가고 싶어요!</div>
-          <StDate>0박 0일</StDate>
+          {startDate && lastDate && (
+            <StDate>
+              {nights}박 {days}일
+            </StDate>
+          )}
         </StBottomSheetTitle>
         <StInputContainer>
-          <input type="date" onChange={(e) => console.log(e.target.value)} />
+          <input type="date" onChange={(e) => setStartDate(e.target.value)} />
           <div>-</div>
-          <input type="date" onChange={(e) => console.log(e.target.value)} />
+          <input type="date" onChange={(e) => setLastDate(e.target.value)} />
         </StInputContainer>
         <Link href={'https://open.kakao.com/o/sVtSLMHe'} passHref>
           <a>1:1 대화 신청하기</a>
