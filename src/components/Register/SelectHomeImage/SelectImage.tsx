@@ -13,8 +13,6 @@ export default function SelectImage(props: IProps) {
   setNextValid(true);
   return (
     <StSelectImage>
-      <h2>멋진 집에 살고 계시네요!</h2>
-      <h2>우리집 대표사진을 골라주세요.</h2>
       <img src={representImg ?? images[0]} />
       <StImageContainer>
         {images.map((image) => (
@@ -26,6 +24,7 @@ export default function SelectImage(props: IProps) {
 }
 
 const StSelectImage = styled.div`
+  margin-top: 40px;
   & > img {
     height: 312px;
     width: 343px;
