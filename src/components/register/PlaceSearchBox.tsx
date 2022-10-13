@@ -33,5 +33,6 @@ const StPlaceSearchBox = styled.div`
     width: 100vw !important;
     max-width: 42rem;
     height: 49.4rem !important;
+    min-height: calc(100vh - 60px);
   }
 `;
