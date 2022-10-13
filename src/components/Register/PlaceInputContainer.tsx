@@ -24,13 +24,13 @@ function PlaceInputContainer(props: PlaceInputContainerProps) {
     <StPlaceInputContainer>
       <h1>어디에 살고 계신가요?</h1>
       <div>
-        <input value={router.query?.zoneCode} placeholder="우편번호를 입력해주세요." readOnly />
+        <input value={router.query?.zoneCode} placeholder="우편번호를 입력하세요." readOnly />
         <Link href="/search">
           <a>우편번호 검색</a>
         </Link>
       </div>
       <input value={router.query?.address} readOnly />
-      <input value={detail} onChange={handleChange} />
+      <input value={detail} placeholder="상세 주소를 적어주세요." onChange={handleChange} />
     </StPlaceInputContainer>
   );
 }
