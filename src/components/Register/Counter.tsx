@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ImageDiv from '../common/ImageDiv';
-import { icMinusBlue, icMinusGray, icPlusBlue, icPlusGray } from 'public/assets/icons';
+import { icMinusActive, icMinusGray, icPlusActive, icPlusGray } from 'public/assets/icons';
 
 function Counter() {
   const [count, setCount] = useState(0);
@@ -29,11 +29,11 @@ function Counter() {
   return (
     <StCounter>
       <button onClick={handlePlusClick}>
-        <ImageDiv className="button" src={isPlusAdjustable ? icPlusBlue : icPlusGray} alt="-" />
+        <ImageDiv className="button" src={isPlusAdjustable ? icPlusActive : icPlusGray} alt="-" />
       </button>
       <div>{count > 3 ? `3명 이상` : `${count}명`}</div>
       <button onClick={handleMinusClick}>
-        <ImageDiv className="button" src={isMinusAdjustable ? icMinusBlue : icMinusGray} alt="+" />
+        <ImageDiv className="button" src={isMinusAdjustable ? icMinusActive : icMinusGray} alt="+" />
       </button>
     </StCounter>
   );

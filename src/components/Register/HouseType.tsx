@@ -51,7 +51,7 @@ const StHouseType = styled.div`
     div {
       font-size: 12px;
       line-height: 160.3%;
-      color: #b7cae7;
+      color: #9190cf;
     }
   }
 
