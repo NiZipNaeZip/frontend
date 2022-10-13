@@ -18,8 +18,8 @@ function BottomSheet(props: BottomSheetProps) {
   useEffect(() => {
     const startNumber = Number(startDate.slice(-2));
     const lastNumber = Number(lastDate.slice(-2));
-    setNights(lastNumber - startNumber - 1);
-    setDays(lastNumber - startNumber);
+    setNights(lastNumber - startNumber);
+    setDays(lastNumber - startNumber + 1);
   }, [startDate, lastDate]);
 
   return (
