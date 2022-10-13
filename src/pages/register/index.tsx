@@ -42,7 +42,7 @@ export default function Register() {
   };
 
   const pages = [
-    // <PlaceInputContainer />,
+    <PlaceInputContainer setNextValid={setNextValid} />,
     <SelectHomeImage
       setFiles={setFiles}
       setImages={setImages}
