@@ -1,5 +1,4 @@
 import ImageDiv from '@src/components/common/ImageDiv';
-import ThumbnailInfo from '@src/components/detail/ThumbnailInfo';
 import useModal from '@src/hooks/useModal';
 import { api } from '@src/services/api';
 import { HouseData } from '@src/services/api/types/house-detail';
