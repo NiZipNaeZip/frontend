@@ -131,6 +131,7 @@ const StDetailWrapper = styled.div`
     border-radius: 80px;
     align-items: center;
     justify-content: center;
+    margin-top: 93px;
     margin-bottom: 46px;
 
     .like {
