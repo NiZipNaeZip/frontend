@@ -5,6 +5,8 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useState } from 'react';
+import { icLike } from 'public/assets/icons';
+import BottomSheet from '@src/components/Register/BottomSheet';
 
 const imgList = [imgUpload, imgUpload, imgUpload, imgUpload];
 export default function InfoDetail() {
@@ -20,6 +22,8 @@ export default function InfoDetail() {
       setImgIdx(newIdx);
     },
   };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <StMainContainer>
       <StSliderWrapper>
@@ -34,6 +38,13 @@ export default function InfoDetail() {
           {imgIdx + 1}/{imgList.length}
         </span>
       </StSliderWrapper>
+      <StDetailWrapper>
+        <button onClick={() => setIsModalOpen(true)}>
+          <ImageDiv className="like" src={icLike} alt="" />
+          관심 있어요
+        </button>
+      </StDetailWrapper>
+      {isModalOpen && <BottomSheet closeModal={() => setIsModalOpen(false)} />}
     </StMainContainer>
   );
 }
@@ -68,5 +79,28 @@ const StImageWrapper = styled.div`
     max-height: 314px;
     height: 314px;
     object-fit: cover;
+  }
+`;
+
+const StDetailWrapper = styled.div`
+  padding: 0 20px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+
+  button {
+    display: flex;
+    width: 100%;
+    height: 61px;
+    background: #6765ff;
+    color: #fff;
+    border-radius: 80px;
+    align-items: center;
+    justify-content: center;
+
+    .like {
+      width: 27px;
+      height: 27px;
+    }
   }
 `;
