@@ -25,6 +25,7 @@ export default function SelectImage(props: IProps) {
 
 const StSelectImage = styled.div`
   margin-top: 40px;
+  padding: 0 20px;
   img {
     object-fit: cover;
   }

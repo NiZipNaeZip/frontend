@@ -22,8 +22,7 @@ function CohabitInformation() {
 export default CohabitInformation;
 
 const StCohabitInformation = styled.div`
-  margin-top: 30px;
-  margin-bottom: 40px;
+  margin: 30px 20px 40px 20px;
 
   & > button {
     display: flex;

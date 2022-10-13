@@ -40,4 +40,5 @@ const StMainDiv = styled.div`
 `;
 const StHeaderDiv = styled.div`
   margin-top: 40px;
+  padding: 0 20px;
 `;

@@ -15,7 +15,8 @@ export default function Button(props: IProps) {
 }
 
 const StButton = styled.button<{ disabled: boolean }>`
-  /* width: 100%; */
+  width: 100%;
+  max-width: 380px;
   height: 61px;
   border-radius: 10px;
   margin-top: 8px;

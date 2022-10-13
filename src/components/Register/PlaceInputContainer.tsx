@@ -43,6 +43,8 @@ const StPlaceInputContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
+  padding: 0 20px;
+  justify-content: center;
 
   h1 {
     font-weight: 700;

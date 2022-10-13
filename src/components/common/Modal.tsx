@@ -32,20 +32,19 @@ const StModalBackground = styled.div<{ isOpen: boolean }>`
   display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
   position: fixed;
   width: 100%;
+  max-width: 420px;
   height: 100%;
   z-index: 1;
-  left: 0;
-  top: 0;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
+  padding: 0 20px;
 `;
 const StModalContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 335px;
+  width: 100%;
   height: 224px;
   margin: 60% auto;
   border-radius: 10px;
@@ -69,10 +68,12 @@ const StModalContent = styled.div`
   }
   & > div {
     width: 100%;
+    padding: 0 20.5px;
     display: flex;
     justify-content: space-around;
+    gap: 14px;
     button {
-      width: 140px;
+      width: 100%;
       height: 50px;
       border-radius: 10px;
     }

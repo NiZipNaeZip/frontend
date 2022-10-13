@@ -39,8 +39,7 @@ export default HouseType;
 const StHouseType = styled.div`
   display: flex;
   gap: 12px;
-  margin-top: 30px;
-  margin-bottom: 40px;
+  margin: 30px 20px 40px 20px;
   background: #f3f7fb;
   padding: 9px 12px 10px 12px;
   border-radius: 10px;
