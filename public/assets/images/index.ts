@@ -1,1 +1,1 @@
-export { default as imgBackground } from './img_background.svg';
+export { default as imgUpload } from './img_upload.svg';

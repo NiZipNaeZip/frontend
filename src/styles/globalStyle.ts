@@ -9,6 +9,15 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     height: 100%;
   }
+
+  h2{
+    font-family: Apple SD Gothic Neo;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: -0.004em;
+    text-align: left;
+  }
   
   #__next {
     display: flex;
@@ -28,7 +37,7 @@ const GlobalStyle = createGlobalStyle`
   }
   
   body, button {
-    // TODO : font-family 추가
+    font-family: 'Noto Sans KR', sans-serif;
   }
   
   button {
