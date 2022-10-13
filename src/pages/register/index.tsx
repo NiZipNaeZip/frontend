@@ -111,7 +111,6 @@ const StFooter = styled.div`
   bottom: 46px;
 `;
 const StMainContent = styled.div`
-  height: 660px;
   overflow: auto;
   margin-bottom: 108px;
 `;
