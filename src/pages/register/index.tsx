@@ -66,11 +66,13 @@ export default function Register() {
   ];
 
   const { openModal, Modal }: any = useModal({
+    isConfirm: true,
     title: '집 등록을 그만둡니다.',
     content: `    나가기를 하면 현재 페이지까지 
     입력한 정보는 저장되지 않습니다.`,
-    submitContent: '나가기',
-    handleSubmit: () => router.push('/'),
+    leftComment: '나가기',
+    rightComment: '취소',
+    handleLeftButton: () => router.push('/'),
   });
 
   return (

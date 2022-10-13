@@ -2,25 +2,36 @@ import Modal from '@src/components/common/Modal';
 import { useState } from 'react';
 
 interface IProps {
+  isConfirm: boolean;
   title: string;
   content: string;
-  submitContent: string;
-  handleSubmit: () => void;
+  rightComment: string;
+  leftComment: string;
+  handleRightButton?: () => void;
+  handleLeftButton: () => void;
 }
 
 export default function useModal(props: IProps) {
-  const { title, content, submitContent, handleSubmit } = props;
+  const { isConfirm, title, rightComment, content, leftComment, handleRightButton, handleLeftButton } = props;
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const openModal = () => setIsOpen(true);
-
+  const handleRightButtonClick = () => {
+    if (isConfirm) {
+      setIsOpen(false);
+      return;
+    }
+    if (handleRightButton) handleRightButton();
+  };
   const modal = () => (
     <Modal
+      content={content}
+      isConfirm={isConfirm}
       isOpen={isOpen}
       title={title}
-      content={content}
-      submitContent={submitContent}
-      handleCancle={() => setIsOpen(false)}
-      handleSubmit={handleSubmit}
+      rightComment={rightComment}
+      leftComment={leftComment}
+      handleLeftButton={handleLeftButton}
+      handleRightButton={handleRightButtonClick}
     />
   );
   return {
