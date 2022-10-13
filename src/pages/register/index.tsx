@@ -47,7 +47,7 @@ export default function Register() {
 
   const isNotEssential = (pageNum: number) => {
     // 필수 항목 아닌 경우
-    const notEssentialList = [0];
+    const notEssentialList = [4];
     return notEssentialList.includes(pageNum);
   };
   const pages = [
@@ -101,8 +101,8 @@ export default function Register() {
 }
 
 const StFooter = styled.div`
-  width: calc(100% - 40px);
-  max-width: 420px;
+  padding: 0 20px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -117,13 +117,12 @@ const StMainContent = styled.div`
 const StRegister = styled.div``;
 const StHeader = styled.div`
   display: flex;
-  width: 375px;
+  padding: 0 20px;
   height: 60px;
   align-items: center;
   justify-content: space-between;
   & > div {
     display: flex;
-    margin-right: 20px;
   }
   span {
     display: block;

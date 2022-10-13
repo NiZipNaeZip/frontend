@@ -35,6 +35,7 @@ const StLine = styled.div`
 
 const StTitle = styled.h2`
   position: relative;
+  padding: 0 20px;
   padding-top: 38px;
 
   &:last-child {
