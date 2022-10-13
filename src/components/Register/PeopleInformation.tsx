@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Counter from './Counter';
+import CohabitInformation from './CohabitInformation';
 
 function PeopleInformation() {
   return (
@@ -14,6 +15,7 @@ function PeopleInformation() {
         <br />
         함께 지내는 집인가요?
       </StTitle>
+      <CohabitInformation />
     </div>
   );
 }
