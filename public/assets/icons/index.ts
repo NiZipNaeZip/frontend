@@ -15,3 +15,7 @@ export { default as icCalendar } from './ic_calendar.svg';
 export { default as icLike } from './ic_like.svg';
 export { default as icMark } from './ic_mark.svg';
 export { default as icKakao } from './ic_kakao.svg';
+export { default as icBrand } from './ic_brand.svg';
+export { default as icHome } from './ic_home.svg';
+export { default as icNotice } from './ic_notice.svg';
+export { default as icDetailBack } from './ic_detail_back.svg';

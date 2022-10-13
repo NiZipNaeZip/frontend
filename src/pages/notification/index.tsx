@@ -4,7 +4,6 @@ import { icBack } from 'public/assets/icons';
 import ImageDiv from '@src/components/common/ImageDiv';
 import { useRouter } from 'next/router';
 import Notification from '@src/components/notification/Notification';
-import useToast from '@src/hooks/useToast';
 
 const data = [
   {
@@ -13,6 +12,7 @@ const data = [
     period: '10월1일 ~ 10월3일',
     title: 'ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ',
     location: '서울특별시 마포구 공덕동',
+    messageLink: '',
   },
   {
     status: 'ACCEPT',
@@ -20,6 +20,7 @@ const data = [
     period: '10월1일 ~ 10월3일',
     title: 'ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ',
     location: '서울특별시 마포구 공덕동',
+    messageLink: '',
   },
   {
     status: 'UNREAD',
@@ -27,6 +28,7 @@ const data = [
     period: '10월1일 ~ 10월3일',
     title: 'ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ',
     location: '서울특별시 마포구 공덕동',
+    messageLink: '',
   },
   {
     status: 'UNREAD',
@@ -34,6 +36,7 @@ const data = [
     period: '10월1일 ~ 10월3일',
     title: 'ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ',
     location: '서울특별시 마포구 공덕동',
+    messageLink: '',
   },
   {
     status: 'UNREAD',
@@ -41,28 +44,27 @@ const data = [
     period: '10월1일 ~ 10월3일',
     title: 'ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ',
     location: '서울특별시 마포구 공덕동',
+    messageLink: '',
   },
 ];
 export default function NotificationPage() {
   const router = useRouter();
-  const handleClickPrevious = () => {};
-  const { ToastModal, openToast }: any = useToast(`채팅 신청 완료!
-상대방이 수락하면 이야기를 나눌 수 있습니다`);
+  const handleClickPrevious = () => {
+    router.back();
+  };
+
   return (
-    <>
-      <ToastModal />
-      <StMainContainer>
-        <StHeader>
-          <ImageDiv className="test" src={icBack} alt="" onClick={handleClickPrevious} />
-          <h5>알림</h5>
-        </StHeader>
-        <StNotificationContainer>
-          {data.map((info) => (
-            <Notification {...info} handleClick={openToast} />
-          ))}
-        </StNotificationContainer>
-      </StMainContainer>
-    </>
+    <StMainContainer>
+      <StHeader>
+        <ImageDiv className="test" src={icBack} alt="" onClick={handleClickPrevious} />
+        <h5>알림</h5>
+      </StHeader>
+      <StNotificationContainer>
+        {data.map((info) => (
+          <Notification {...info} />
+        ))}
+      </StNotificationContainer>
+    </StMainContainer>
   );
 }
 

@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import useToast from '@src/hooks/useToast';
 import { icClose } from 'public/assets/icons';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -15,7 +14,8 @@ function BottomSheet(props: BottomSheetProps) {
   const [lastDate, setLastDate] = useState('');
   const [nights, setNights] = useState(0);
   const [days, setDays] = useState(0);
-  const router = useRouter();
+  const { openToast, ToastModal } = useToast(`채팅 신청 완료!
+상대방이 수락하면 이야기를 나눌 수 있습니다`);
 
   useEffect(() => {
     const startNumber = Number(startDate.slice(-2));
@@ -26,6 +26,7 @@ function BottomSheet(props: BottomSheetProps) {
 
   return (
     <>
+      <ToastModal />
       <StModalBackground />
       <StBottomSheet>
         <button onClick={closeModal}>
@@ -44,9 +45,7 @@ function BottomSheet(props: BottomSheetProps) {
           <div>-</div>
           <input type="date" onChange={(e) => setLastDate(e.target.value)} />
         </StInputContainer>
-        <StChattingButton
-          onClick={() => router.push('https://open.kakao.com/o/sVtSLMHe')}
-          isSelected={startDate && lastDate ? true : false}>
+        <StChattingButton onClick={openToast} isSelected={startDate && lastDate ? true : false}>
           1:1 대화 신청하기
         </StChattingButton>
       </StBottomSheet>

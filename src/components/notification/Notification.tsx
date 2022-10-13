@@ -1,4 +1,5 @@
 import useToast from '@src/hooks/useToast';
+import { useRouter } from 'next/router';
 import { icCalendar, icLocationColored } from 'public/assets/icons';
 import { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
@@ -11,11 +12,12 @@ interface IProps {
   period: string;
   // status: 'ACCEPT' | 'UNREAD';
   status: string;
-  handleClick: () => void;
+  messageLink: string;
 }
 
 export default function Notification(props: IProps) {
-  const { img, title, location, period, status, handleClick } = props;
+  const router = useRouter();
+  const { img, title, location, period, status, messageLink } = props;
 
   return (
     <StMainContainer>
@@ -36,7 +38,7 @@ export default function Notification(props: IProps) {
       {status === 'UNREAD' ? (
         <StButtonContainer>
           <button>거절</button>
-          <button onClick={handleClick}>수락</button>
+          <button onClick={() => router.push(messageLink)}>수락</button>
         </StButtonContainer>
       ) : (
         <StReConversationButton>대화하기</StReConversationButton>

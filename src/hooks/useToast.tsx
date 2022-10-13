@@ -39,7 +39,7 @@ export default function useToast(content: string) {
 const StToastContainer = styled.div<{ isOpen: boolean }>`
   z-index: 999;
   display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
-  position: absolute;
+  position: fixed;
   top: 76px;
   width: calc(100% - 40px);
   margin-left: 20px;
