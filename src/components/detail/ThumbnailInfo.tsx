@@ -10,7 +10,6 @@ interface IProps {
 }
 export default function ThumbnailInfo(props: IProps) {
   const { img, title, location, tags } = props;
-
   return (
     <StMainContainer>
       <img src={img} />
