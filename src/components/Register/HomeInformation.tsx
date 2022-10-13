@@ -14,15 +14,15 @@ export default function HomeInformation(props: IProps) {
   }, [oneWordInfo, recommendInfo]);
   return (
     <div>
-      <StMainDiv>
-        <StOneWordHeader>
-          <h5>당신의 집을 한마디로 표현한다면?</h5>
-        </StOneWordHeader>
-        <StOneWordInfo>
-          <input value={oneWordInfo} onChange={(e) => setOneWordInfo(e.target.value)} />
-          <span>최대 30자</span>
-        </StOneWordInfo>
-        <StBrDiv />
+      <StOneWordHeader>
+        <h5>당신의 집을 한마디로 표현한다면?</h5>
+      </StOneWordHeader>
+      <StOneWordInfo>
+        <input value={oneWordInfo} onChange={(e) => setOneWordInfo(e.target.value)} />
+        <span>최대 30자</span>
+      </StOneWordInfo>
+      <StBrDiv />
+      <StRecommend>
         <StRecommendHeader>
           <h5>이런 분께 추천합니다.</h5>
         </StRecommendHeader>
@@ -30,13 +30,14 @@ export default function HomeInformation(props: IProps) {
           <textarea value={recommendInfo} onChange={(e) => setRecommendInfo(e.target.value)} />
           <span>최대 500자</span>
         </StRecommendInfo>
-      </StMainDiv>
+      </StRecommend>
     </div>
   );
 }
 
 const StOneWordHeader = styled.div`
   margin-top: 40px;
+  padding: 0 20px;
 `;
 
 const StRecommendHeader = styled.div`
@@ -44,21 +45,13 @@ const StRecommendHeader = styled.div`
 `;
 
 const StBrDiv = styled.div`
-  max-width: 420px;
-  position: absolute;
-  width: calc(100% + 40px);
-  left: -20px;
   height: 10px;
   background-color: #f9f9f9;
 `;
 
-const StMainDiv = styled.div``;
-
 const StOneWordInfo = styled.div`
   display: flex;
-  margin-top: 30px;
-  margin-bottom: 40px;
-  width: 100%;
+  margin: 30px 20px 40px 20px;
   height: 46px;
   border-bottom: 1px solid #a3a3a3;
   box-sizing: content-box;
@@ -81,10 +74,13 @@ const StOneWordInfo = styled.div`
   }
 `;
 
+const StRecommend = styled.div`
+  padding: 0 20px;
+`;
+
 const StRecommendInfo = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: 302px;
   margin-top: 30px;
   background-color: #f9f9f9;

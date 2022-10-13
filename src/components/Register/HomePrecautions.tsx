@@ -27,6 +27,7 @@ export default function HomePrecuations(props: IProps) {
 const StHeaderDiv = styled.div`
   display: flex;
   margin-top: 40px;
+  padding: 0 20px;
 `;
 
 const StMainDiv = styled.div`
