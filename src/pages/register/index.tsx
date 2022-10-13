@@ -52,7 +52,6 @@ export default function Register() {
     return notEssentialList.includes(pageNum);
   };
   const pages = [
-    <LinkShare setNextValid={setNextValid} />,
     <PlaceInputContainer setNextValid={setNextValid} />,
     <SelectHomeImage
       setFiles={setFiles}
@@ -65,6 +64,7 @@ export default function Register() {
     <PeopleInformation />,
     <HomeInformation setNextValid={setNextValid} />,
     <HomePrecuations setNextValid={setNextValid} />,
+    <LinkShare setNextValid={setNextValid} />,
   ];
 
   const { openModal, Modal }: any = useModal({
