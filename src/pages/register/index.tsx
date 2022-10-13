@@ -6,13 +6,34 @@ import { icBack } from 'public/assets/icons';
 import { useState } from 'react';
 import styled from 'styled-components';
 import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
+import { useRouter } from 'next/router';
 
 export default function Register() {
+  const router = useRouter();
   const [pageIdx, setPageIdx] = useState<number>(0);
   const [files, setFiles] = useState<Blob[]>([]);
   const [images, setImages] = useState<string[]>([]);
   const [representImg, setRepresentImg] = useState<string | null>(null);
   const [nextValid, setNextValid] = useState<boolean>(false);
+
+  const handleClickPrevious = () => {
+    if (pageIdx === 0) {
+      router.back();
+      return;
+    }
+    setPageIdx((prev) => prev - 1);
+  };
+
+  const handleClickNext = () => {
+    setPageIdx((prev) => prev + 1);
+    setNextValid(false);
+  };
+
+  const handleClickSubmit = () => {
+    //todo : 오브젝트 형태로 넘겨주기
+    router.push('/');
+  };
+
   const pages = [
     <PlaceInputContainer />,
     files.length === 0 ? (
@@ -29,7 +50,7 @@ export default function Register() {
   return (
     <StRegister>
       <StHeader>
-        <ImageDiv className="test" src={icBack} alt="" />
+        <ImageDiv className="test" src={icBack} alt="" onClick={handleClickPrevious} />
         <div>
           <span id="page-num">
             {pageIdx + 1}/{pages.length}
@@ -38,10 +59,10 @@ export default function Register() {
         </div>
       </StHeader>
       {pages[pageIdx]}
-      {pageIdx === pages.length + 1 ? (
-        <Button name="다음으로" handleClick={() => setPageIdx((prev) => prev + 1)} nextValid={nextValid} />
+      {pageIdx !== pages.length + 1 ? (
+        <Button name="다음으로" handleClick={handleClickNext} nextValid={nextValid} />
       ) : (
-        <Button name="등록완료" handleClick={() => {}} nextValid={true} />
+        <Button name="등록완료" handleClick={handleClickSubmit} nextValid={nextValid} />
       )}
     </StRegister>
   );
@@ -71,6 +92,9 @@ const StHeader = styled.div`
     margin-right: 11px;
   }
   #cancle {
+    font-size: 11px;
+    background-color: #000000;
+    color: white;
     width: 27px;
     border-radius: 50%;
   }
