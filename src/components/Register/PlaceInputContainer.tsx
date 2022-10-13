@@ -12,24 +12,26 @@ function PlaceInputContainer(props: PlaceInputContainerProps) {
   const { setNextValid } = props;
   const [detail, setDetail] = useState('');
   const router = useRouter();
+  const { zoneCode, address } = router.query;
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDetail(e.target.value);
   };
 
   useEffect(() => {
-    setNextValid(detail ? true : false);
+    const passCondition = zoneCode && address && detail;
+    setNextValid(passCondition ? true : false);
   }, [detail]);
 
   return (
     <StPlaceInputContainer>
       <h1>어디에 살고 계신가요?</h1>
       <div>
-        <input value={router.query?.zoneCode} placeholder="우편번호를 입력하세요." readOnly />
+        <input value={zoneCode || ''} placeholder="우편번호를 입력하세요." readOnly />
         <Link href="/search">
           <a>우편번호 검색</a>
         </Link>
       </div>
-      <input value={router.query?.address} readOnly />
+      <input value={address || ''} readOnly />
       <input value={detail} placeholder="상세 주소를 적어주세요." onChange={handleChange} />
     </StPlaceInputContainer>
   );
