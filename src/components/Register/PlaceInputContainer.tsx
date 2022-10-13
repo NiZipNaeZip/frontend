@@ -59,7 +59,7 @@ const StPlaceInputContainer = styled.div`
 
     a {
       height: 46px;
-      background: #082a5c;
+      background: #6765ff;
       border-radius: 10px;
       color: #ffffff;
       padding: 12px 20px 12px 19px;

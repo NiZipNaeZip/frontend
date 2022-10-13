@@ -23,5 +23,5 @@ const StButton = styled.button<{ disabled: boolean }>`
   text-align: center;
   line-height: 61px;
   color: white;
-  background-color: ${({ disabled }) => (disabled ? '#D7E0EB' : '#082A5C')};
+  background-color: ${({ disabled }) => (disabled ? '#E9E9FF' : '#6765FF')};
 `;

@@ -49,7 +49,7 @@ const StTextBox = styled.div`
     font-weight: 500;
     font-size: 16px;
     line-height: 160.3%;
-    color: #082a5c;
+    color: #6765ff;
   }
 
   & > div:last-child {
