@@ -17,7 +17,7 @@ function PeopleInformation(props: PeopleInformationProps) {
       <HouseType />
       <StLine />
       <StTitle>몇 명이 지낼 수 있나요?</StTitle>
-      <Counter />
+      <Counter setNextValid={setNextValid} />
       <StLine />
       <StTitle>
         다른 사람과

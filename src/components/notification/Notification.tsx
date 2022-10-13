@@ -10,8 +10,9 @@ interface IProps {
   title: string;
   location: string;
   period: string;
-  // status: 'ACCEPT' | 'UNREAD';
+  // alarmStatus: 'ACCEPT' | 'UNREAD';
   status: string;
+  userName?: string;
   messageLink: string;
 }
 

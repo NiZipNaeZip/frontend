@@ -21,7 +21,7 @@ export default function Detail() {
     handleLeftButton: () => router.replace('/detail/jeju'),
     handleRightButton: () => router.replace('/detail/land'),
   });
-  const [houseList, setHouseList] = useState([]);
+  const [houseList, setHouseList] = useState<any>([]);
 
   useEffect(() => {
     (async () => {
@@ -47,8 +47,8 @@ export default function Detail() {
           <h5>{location === 'jeju' ? '제주' : '육지'}</h5>
           {location === 'land' && <span>서울, 경기, 인천, 부산, 강원 등</span>}
         </div>
-        {houseList.map((house) => (
-          <StDetailContainer key={house.houseId}>
+        {houseList.map((house: any) => (
+          <StDetailContainer key={house.houseId} onClick={() => {}}>
             <img src={`https://jipyo.link/${house.filePath.split('/').pop()}`} width="100%" height="222px" />
             <StContentWrapper>
               <span>{house.houseName}</span>
