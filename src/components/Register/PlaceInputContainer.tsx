@@ -14,17 +14,13 @@ function PlaceInputContainer() {
     <StPlaceInputContainer>
       <h1>어디에 살고 계신가요?</h1>
       <div>
-        <input value={router.query?.zoneCode} readOnly />
+        <input value={router.query?.zoneCode} placeholder="우편번호를 입력해주세요." readOnly />
         <Link href="/search">
           <a>우편번호 검색</a>
         </Link>
       </div>
-      {router.query?.zonCode && (
-        <>
-          <input value={router.query?.address} readOnly />
-          <input value={detail} onChange={handleChange} />
-        </>
-      )}
+      <input value={router.query?.address} readOnly />
+      <input value={detail} onChange={handleChange} />
     </StPlaceInputContainer>
   );
 }
@@ -61,6 +57,10 @@ const StPlaceInputContainer = styled.div`
   input {
     border-bottom: 1px solid #e1e1e1;
     height: 46px;
+  }
+
+  input:first-child {
+    flex: 1;
   }
 
   input:not(:last-child) {
