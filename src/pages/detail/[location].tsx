@@ -1,36 +1,12 @@
 import ImageDiv from '@src/components/common/ImageDiv';
-import ThumbnailInfo from '@src/components/detail/ThumbnailInfo';
 import useModal from '@src/hooks/useModal';
+import { api } from '@src/services/api';
+import { client } from '@src/services/libs/api';
 import { useRouter } from 'next/router';
 import { icDetailBack } from 'public/assets/icons';
+import { icLocation } from 'public/assets/icons';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-
-const data = [
-  {
-    img: '',
-    title: '라탄 인테리어가 매력적인 홍대 자취방 봄바람을 철환하였',
-    location: '서울마포시 마포구 공덕동',
-    tags: ['tag', 'tag', 'tag'],
-  },
-  {
-    img: '',
-    title: '라탄 인테리어가 매력적인 홍대 자취방 봄바람을 철환하였',
-    location: '서울마포시 마포구 공덕동',
-    tags: ['tag', 'tag', 'tag'],
-  },
-  {
-    img: '',
-    title: '라탄 인테리어가 매력적인 홍대 자취방 봄바람을 철환하였',
-    location: '서울마포시 마포구 공덕동',
-    tags: ['tag', 'tag', 'tag'],
-  },
-  {
-    img: '',
-    title: '라탄 인테리어가 매력적인 홍대 자취방 봄바람을 철환하였',
-    location: '서울마포시 마포구 공덕동',
-    tags: ['tag', 'tag', 'tag'],
-  },
-];
 
 export default function Detail() {
   const router = useRouter();
@@ -45,6 +21,15 @@ export default function Detail() {
     handleLeftButton: () => router.replace('/detail/jeju'),
     handleRightButton: () => router.replace('/detail/land'),
   });
+  const [houseList, setHouseList] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await client.get(`/house/제주`);
+      setHouseList(data);
+    })();
+  }, []);
+
   return (
     <>
       <Modal />
@@ -62,8 +47,22 @@ export default function Detail() {
           <h5>{location === 'jeju' ? '제주' : '육지'}</h5>
           {location === 'land' && <span>서울, 경기, 인천, 부산, 강원 등</span>}
         </div>
-        {data.map((info) => (
-          <ThumbnailInfo {...info} />
+        {houseList.map((house) => (
+          <StDetailContainer key={house.houseId}>
+            <img src={`https://jipyo.link/${house.filePath.split('/').pop()}`} width="100%" height="222px" />
+            <StContentWrapper>
+              <span>{house.houseName}</span>
+              <div>
+                <ImageDiv src={icLocation} className="test" alt="" />
+                <span>{location === 'jeju' ? '제주' : '육지'}</span>
+              </div>
+              <StTagContainer>
+                <span>{house.houseInfoDTO.buildingType}</span>
+                <span>{house.houseInfoDTO.numberOfRooms}</span>
+                <span>{house.houseInfoDTO.numberOfHouse}</span>
+              </StTagContainer>
+            </StContentWrapper>
+          </StDetailContainer>
         ))}
       </StMainContainer>
     </>
@@ -102,5 +101,59 @@ const StMainContainer = styled.div`
       letter-spacing: 0em;
       text-align: left;
     }
+  }
+`;
+
+const StDetailContainer = styled.div`
+  width: 100%;
+  .thumbnail {
+    width: 100%;
+    height: 222px;
+  }
+`;
+const StTagContainer = styled.div`
+  span {
+    display: inline-block;
+    height: 27px;
+    border-radius: 130px;
+    padding: 4px 12px 4px 12px;
+    background-color: #eef3f9;
+    margin-right: 8px;
+  }
+`;
+const StContentWrapper = styled.div`
+  width: 100%;
+  height: 143px;
+  padding: 18px 20px 28px 18px;
+  & > div {
+    display: flex;
+    margin-top: 9px;
+    margin-bottom: 19px;
+    div {
+      margin-right: 6px;
+    }
+    span {
+      display: block;
+      font-family: Noto Sans KR;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 19px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #a3a3a3;
+    }
+  }
+  & > span {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
   }
 `;
