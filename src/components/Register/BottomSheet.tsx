@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { icClose } from 'public/assets/icons';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -14,6 +15,7 @@ function BottomSheet(props: BottomSheetProps) {
   const [lastDate, setLastDate] = useState('');
   const [nights, setNights] = useState(0);
   const [days, setDays] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     const startNumber = Number(startDate.slice(-2));
@@ -42,9 +44,11 @@ function BottomSheet(props: BottomSheetProps) {
           <div>-</div>
           <input type="date" onChange={(e) => setLastDate(e.target.value)} />
         </StInputContainer>
-        <Link href={'https://open.kakao.com/o/sVtSLMHe'} passHref>
-          <a>1:1 대화 신청하기</a>
-        </Link>
+        <StChattingButton
+          onClick={() => router.push('https://open.kakao.com/o/sVtSLMHe')}
+          isSelected={startDate && lastDate ? true : false}>
+          1:1 대화 신청하기
+        </StChattingButton>
       </StBottomSheet>
     </>
   );
@@ -80,20 +84,20 @@ const StBottomSheet = styled.div`
     height: 27px;
     padding-top: 16px;
   }
+`;
 
-  & > a {
-    display: block;
-    width: 100%;
-    height: 61px;
-    line-height: 61px;
-    border-radius: 80px;
-    background-color: #6765ff;
-    color: #fff !important;
-    margin-bottom: 48px;
-    text-align: center;
-    font-weight: 500;
-    font-size: 17px;
-  }
+const StChattingButton = styled.button<{ isSelected: boolean }>`
+  display: block;
+  width: 100%;
+  height: 61px;
+  line-height: 61px;
+  border-radius: 80px;
+  background-color: ${({ isSelected }) => (isSelected ? '#6765ff' : ' #E9E9FF')};
+  color: #fff !important;
+  margin-bottom: 48px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 17px;
 `;
 
 const StBottomSheetTitle = styled.div`
