@@ -1,6 +1,8 @@
+import ImageDiv from '@src/components/common/ImageDiv';
 import ThumbnailInfo from '@src/components/detail/ThumbnailInfo';
 import useModal from '@src/hooks/useModal';
 import { useRouter } from 'next/router';
+import { icDetailBack } from 'public/assets/icons';
 import styled from 'styled-components';
 
 const data = [
@@ -47,8 +49,18 @@ export default function Detail() {
     <>
       <Modal />
       <StMainContainer>
-        <div>
-          <h5 onClick={openModal}>{location === 'jeju' ? '제주' : '한국'}</h5>
+        <div onClick={openModal}>
+          <ImageDiv
+            src={icDetailBack}
+            className=""
+            alt=""
+            onClick={(e) => {
+              e.stopPropagation;
+              router.back();
+            }}
+          />
+          <h5>{location === 'jeju' ? '제주' : '육지'}</h5>
+          {location === 'land' && <span>서울, 경기, 인천, 부산, 강원 등</span>}
         </div>
         {data.map((info) => (
           <ThumbnailInfo {...info} />
@@ -63,6 +75,8 @@ const StMainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   & > div:first-child {
+    display: flex;
+    align-items: center;
     width: calc(100% - 40px);
     margin-top: 20px;
     margin-left: 20px;
@@ -70,9 +84,23 @@ const StMainContainer = styled.div`
     margin-bottom: 26px;
     border-radius: 60px;
     box-shadow: 0px 7px 18px 0px #0000000a;
+    div {
+      margin-left: 20px;
+    }
     h5 {
       line-height: 59px;
-      margin-left: 54px;
+      margin-left: 18px;
+    }
+    span {
+      display: block;
+      margin-left: 8px;
+      color: #a3a3a3;
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0em;
+      text-align: left;
     }
   }
 `;
