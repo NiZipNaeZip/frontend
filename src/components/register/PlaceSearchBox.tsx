@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import DaumPostcodeEmbed from 'react-daum-postcode';
 import styled from 'styled-components';
+import CloseHeader from '../common/CloseHeader';
 
 function PlaceSearchBox() {
   const router = useRouter();
@@ -12,9 +13,12 @@ function PlaceSearchBox() {
   };
 
   return (
-    <StPlaceSearchBox>
-      <DaumPostcodeEmbed onComplete={handleComplete} />
-    </StPlaceSearchBox>
+    <>
+      <CloseHeader />
+      <StPlaceSearchBox>
+        <DaumPostcodeEmbed onComplete={handleComplete} />
+      </StPlaceSearchBox>
+    </>
   );
 }
 
