@@ -38,6 +38,7 @@ export default HouseType;
 
 const StHouseType = styled.div`
   display: flex;
+  gap: 12px;
   margin-top: 30px;
   margin-bottom: 40px;
   background: #f3f7fb;
@@ -56,10 +57,12 @@ const StHouseType = styled.div`
   }
 
   select {
-    min-width: 90px;
+    width: 100%;
+    margin-top: 5px;
     background-color: transparent;
-    border: 0;
     font-size: 14px;
     line-height: 22px;
+    border: 0;
+    outline: 0;
   }
 `;
