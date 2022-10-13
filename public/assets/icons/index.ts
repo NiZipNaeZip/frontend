@@ -12,3 +12,6 @@ export { default as icLocation } from './ic_location.svg';
 export { default as icLocationColored } from './ic_location_colored.svg';
 export { default as icLine } from './ic_line.svg';
 export { default as icCalendar } from './ic_calendar.svg';
+export { default as icLike } from './ic_like.svg';
+export { default as icMark } from './ic_mark.svg';
+export { default as icKakao } from './ic_kakao.svg';

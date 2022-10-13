@@ -10,6 +10,7 @@ import HomePrecuations from '@src/components/Register/HomePrecautions';
 import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
 import { icBack, icCloseBg } from 'public/assets/icons';
 import PeopleInformation from '@src/components/Register/PeopleInformation';
+import LinkShare from '@src/components/Register/LinkShare';
 
 export default function Register() {
   const router = useRouter();
@@ -63,6 +64,7 @@ export default function Register() {
     <PeopleInformation />,
     <HomeInformation setNextValid={setNextValid} />,
     <HomePrecuations setNextValid={setNextValid} />,
+    <LinkShare setNextValid={setNextValid} />,
   ];
 
   const { openModal, Modal }: any = useModal({
@@ -94,7 +96,7 @@ export default function Register() {
           {pageIdx + 1 !== pages.length ? (
             <Button name="다음으로" handleClick={handleClickNext} nextValid={nextValid} />
           ) : (
-            <Button name="등록완료" handleClick={handleClickSubmit} nextValid={nextValid} />
+            <Button name="등록하기" handleClick={handleClickSubmit} nextValid={nextValid} />
           )}
         </StFooter>
       </StRegister>

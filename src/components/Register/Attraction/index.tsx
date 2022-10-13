@@ -1,1 +1,5 @@
-export default function Attraction() {}
+function Attraction() {
+  return <div>Attraction</div>;
+}
+
+export default Attraction;

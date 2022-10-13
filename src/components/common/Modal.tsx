@@ -61,23 +61,22 @@ const StModalBackground = styled.div<{ isOpen: boolean }>`
 `;
 const StModalContent = styled.div<{ isConfirm: boolean }>`
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  height: 244px;
-  margin: 60% auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 10px;
   background-color: white;
   text-align: center;
+  max-width: 380px;
+  width: calc(100% - 40px);
   h5 {
-    font-family: Noto Sans KR;
     font-size: 18px;
     font-weight: 500;
     line-height: 29px;
     letter-spacing: 0em;
     text-align: center;
+    margin-bottom: 10px;
   }
   pre {
     font-family: Noto Sans KR;

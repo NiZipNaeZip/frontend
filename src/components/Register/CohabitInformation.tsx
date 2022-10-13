@@ -32,22 +32,3 @@ const StCohabitInformation = styled.div`
     height: 78px;
   }
 `;
-
-const StTextBox = styled.div`
-  flex: 1;
-  text-align: left;
-  word-break: keep-all;
-
-  & > div:first-child {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 160.3%;
-    color: #6765ff;
-  }
-
-  & > div:last-child {
-    font-size: 12px;
-    line-height: 160.3%;
-    color: #a3a3a3;
-  }
-`;
