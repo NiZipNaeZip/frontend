@@ -53,6 +53,7 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
     background-color: transparent;
     -webkit-tap-highlight-color : transparent;
+    padding: 0;
   }
 
   input {
