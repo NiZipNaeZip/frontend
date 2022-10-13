@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
+import useModal from '@src/hooks/useModal';
 import Button from '@src/components/Register/Button';
 import ImageDiv from '@src/components/common/ImageDiv';
 import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
@@ -18,7 +19,7 @@ export default function Register() {
 
   const handleClickPrevious = () => {
     //todo : 페이지 인덱스에 따라 다르게 동작
-    if (pageIdx === 0) {
+    if (pageIdx === 1) {
       setFiles([]);
       setImages([]);
       setNextValid(false);
@@ -54,24 +55,38 @@ export default function Register() {
     />,
     <PeopleInformation />,
   ];
+
+  const { openModal, Modal }: any = useModal({
+    title: '집 등록을 그만둡니다.',
+    content: `    나가기를 하면 현재 페이지까지 
+    입력한 정보는 저장되지 않습니다.`,
+    submitContent: '나가기',
+    handleSubmit: () => router.push('/'),
+  });
+
   return (
-    <StRegister>
-      <StHeader>
-        <ImageDiv className="test" src={icBack} alt="" onClick={handleClickPrevious} />
-        <div>
-          <span id="page-num">
-            {pageIdx + 1}/{pages.length}
-          </span>
-          <span id="cancle">X</span>
-        </div>
-      </StHeader>
-      <StMainContent>{pages[pageIdx]}</StMainContent>
-      {pageIdx + 1 !== pages.length ? (
-        <Button name="다음으로" handleClick={handleClickNext} nextValid={nextValid} />
-      ) : (
-        <Button name="등록완료" handleClick={handleClickSubmit} nextValid={nextValid} />
-      )}
-    </StRegister>
+    <>
+      <Modal />
+      <StRegister>
+        <StHeader>
+          <ImageDiv className="test" src={icBack} alt="" onClick={handleClickPrevious} />
+          <div>
+            <span id="page-num">
+              {pageIdx + 1}/{pages.length}
+            </span>
+            <span id="cancle" onClick={openModal}>
+              X
+            </span>
+          </div>
+        </StHeader>
+        <StMainContent>{pages[pageIdx]}</StMainContent>
+        {pageIdx + 1 !== pages.length ? (
+          <Button name="다음으로" handleClick={handleClickNext} nextValid={nextValid} />
+        ) : (
+          <Button name="등록완료" handleClick={handleClickSubmit} nextValid={nextValid} />
+        )}
+      </StRegister>
+    </>
   );
 }
 

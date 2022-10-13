@@ -25,6 +25,9 @@ export default function SelectImage(props: IProps) {
 
 const StSelectImage = styled.div`
   margin-top: 40px;
+  img {
+    object-fit: cover;
+  }
   & > img {
     height: 312px;
     width: 343px;
@@ -35,7 +38,6 @@ const StImageContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-left: -10px;
-  /* justify-content: space-between; */
   img {
     margin-top: 8px;
     margin-left: 10px;
