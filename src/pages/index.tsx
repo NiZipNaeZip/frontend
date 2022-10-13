@@ -1,4 +1,5 @@
 import SEO from '@src/components/common/SEO';
+import Link from 'next/link';
 import styled from 'styled-components';
 
 function Home() {
@@ -6,6 +7,9 @@ function Home() {
     <StHome>
       <SEO title="메인 페이지" />
       <div>Home</div>
+      <Link href="/register">
+        <a>등록하기</a>
+      </Link>
     </StHome>
   );
 }

@@ -5,6 +5,7 @@ import UploadImage from '@src/components/Register/UploadImage';
 import { icBack } from 'public/assets/icons';
 import { useState } from 'react';
 import styled from 'styled-components';
+import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
 
 export default function Register() {
   const [pageIdx, setPageIdx] = useState<number>(0);
@@ -13,6 +14,7 @@ export default function Register() {
   const [representImg, setRepresentImg] = useState<string | null>(null);
   const [nextValid, setNextValid] = useState<boolean>(false);
   const pages = [
+    <PlaceInputContainer />,
     files.length === 0 ? (
       <UploadImage setFiles={setFiles} setImages={setImages} />
     ) : (

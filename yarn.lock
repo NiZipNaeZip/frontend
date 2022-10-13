@@ -353,6 +353,13 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
   integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
 
+"@types/react-daum-postcode@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@types/react-daum-postcode/-/react-daum-postcode-1.6.1.tgz#20d4b882b2254955aa7b4de53136589d2a5747f3"
+  integrity sha512-5wVpG1X4BkEqPYlZj1eTosMFRxpxEghHkZzARFZ60us/tlGwtZpJU0UbT4qVCR10qlEwFFYWlytlQEnybw4ZQw==
+  dependencies:
+    react-daum-postcode "*"
+
 "@types/react-dom@18.0.6":
   version "18.0.6"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-18.0.6.tgz#36652900024842b74607a17786b6662dd1e103a1"
@@ -1722,6 +1729,11 @@ queue-microtask@^1.2.2:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
+
+react-daum-postcode@*, react-daum-postcode@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/react-daum-postcode/-/react-daum-postcode-3.1.1.tgz#8d349a45177cc88cc69e9f94dcc56ebc41a1d420"
+  integrity sha512-IFlC8XBSK+uobSIBHaWlxeecYpv9RhCFNu4YJ3+CrfGyEVdc4+yaaUH6BIfJbTZOybVx0V3s4nUeAEsssXBNJg==
 
 react-dom@18.2.0:
   version "18.2.0"
