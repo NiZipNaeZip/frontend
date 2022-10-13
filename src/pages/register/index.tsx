@@ -4,10 +4,12 @@ import styled from 'styled-components';
 import useModal from '@src/hooks/useModal';
 import Button from '@src/components/Register/Button';
 import ImageDiv from '@src/components/common/ImageDiv';
-import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
 import SelectHomeImage from '@src/components/Register/SelectHomeImage';
+import HomeInformation from '@src/components/Register/HomeInformation';
+import HomePrecuations from '@src/components/Register/HomePrecautions';
+import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
+import { icBack, icCloseBg } from 'public/assets/icons';
 import PeopleInformation from '@src/components/Register/PeopleInformation';
-import { icBack } from 'public/assets/icons';
 
 export default function Register() {
   const router = useRouter();
@@ -43,8 +45,13 @@ export default function Register() {
     router.push('/');
   };
 
+  const isNotEssential = (pageNum: number) => {
+    // 필수 항목 아닌 경우
+    const notEssentialList = [0];
+    return notEssentialList.includes(pageNum);
+  };
   const pages = [
-    <PlaceInputContainer setNextValid={setNextValid} />,
+    <HomeInformation setNextValid={setNextValid} />,
     <SelectHomeImage
       setFiles={setFiles}
       setImages={setImages}
@@ -54,6 +61,8 @@ export default function Register() {
       setNextValid={setNextValid}
     />,
     <PeopleInformation />,
+    <HomePrecuations setNextValid={setNextValid} />,
+    <PlaceInputContainer setNextValid={setNextValid} />,
   ];
 
   const { openModal, Modal }: any = useModal({
@@ -74,24 +83,35 @@ export default function Register() {
             <span id="page-num">
               {pageIdx + 1}/{pages.length}
             </span>
-            <span id="cancle" onClick={openModal}>
-              X
-            </span>
+            <ImageDiv className="test" src={icCloseBg} alt="" onClick={openModal} />
           </div>
         </StHeader>
         <StMainContent>{pages[pageIdx]}</StMainContent>
-        {pageIdx + 1 !== pages.length ? (
-          <Button name="다음으로" handleClick={handleClickNext} nextValid={nextValid} />
-        ) : (
-          <Button name="등록완료" handleClick={handleClickSubmit} nextValid={nextValid} />
-        )}
+        <StFooter>
+          {isNotEssential(pageIdx) && <span>필수 항목이 아닙니다.</span>}
+          {pageIdx + 1 !== pages.length ? (
+            <Button name="다음으로" handleClick={handleClickNext} nextValid={nextValid} />
+          ) : (
+            <Button name="등록완료" handleClick={handleClickSubmit} nextValid={nextValid} />
+          )}
+        </StFooter>
       </StRegister>
     </>
   );
 }
 
+const StFooter = styled.div`
+  width: calc(100% - 40px);
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  position: fixed;
+  margin: 0 auto;
+  bottom: 46px;
+`;
 const StMainContent = styled.div`
-  height: 680px;
+  height: 660px;
   overflow: auto;
   margin-bottom: 108px;
 `;

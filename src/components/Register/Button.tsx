@@ -15,11 +15,10 @@ export default function Button(props: IProps) {
 }
 
 const StButton = styled.button<{ disabled: boolean }>`
-  position: fixed;
-  bottom: 46px;
-  width: 335px;
+  /* width: 100%; */
   height: 61px;
   border-radius: 10px;
+  margin-top: 8px;
   text-align: center;
   line-height: 61px;
   color: white;

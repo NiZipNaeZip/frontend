@@ -16,7 +16,7 @@ export default function SelectImage(props: IProps) {
       <img src={representImg ?? images[0]} />
       <StImageContainer>
         {images.map((image) => (
-          <img src={image} onClick={() => setRepresentImg(image)} />
+          <img key={image} src={image} onClick={() => setRepresentImg(image)} />
         ))}
       </StImageContainer>
     </StSelectImage>
