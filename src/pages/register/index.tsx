@@ -36,7 +36,11 @@ export default function Register() {
         </div>
       </StHeader>
       {pages[pageIdx]}
-      <Button name="다음으로" handleClick={() => setPageIdx((prev) => prev + 1)} nextValid={nextValid} />
+      {pageIdx === pages.length + 1 ? (
+        <Button name="다음으로" handleClick={() => setPageIdx((prev) => prev + 1)} nextValid={nextValid} />
+      ) : (
+        <Button name="등록완료" handleClick={() => {}} nextValid={true} />
+      )}
     </StRegister>
   );
 }
