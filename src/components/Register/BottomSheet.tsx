@@ -78,6 +78,7 @@ const StBottomSheet = styled.div`
   padding: 0 20px;
   border-radius: 15px 15px 0 0;
   background: #fff;
+  text-align: right;
 
   .close {
     width: 27px;
