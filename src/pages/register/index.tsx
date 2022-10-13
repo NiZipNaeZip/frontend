@@ -28,10 +28,10 @@ export default function Register() {
       setNextValid(false);
       return;
     }
-    // if (pageIdx === 0) {
-    //   router.back();
-    //   return;
-    // }
+    if (pageIdx === 0) {
+      router.back();
+      return;
+    }
     setNextValid(false);
     setPageIdx((prev) => prev - 1);
   };
