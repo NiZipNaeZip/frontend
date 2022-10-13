@@ -1,4 +1,10 @@
 export { default as icBack } from './ic_back.svg';
 export { default as icClose } from './ic_close.svg';
+export { default as icMinusGray } from './ic_minus_gray.svg';
+export { default as icMinusBlue } from './ic_minus_blue.svg';
+export { default as icPlusGray } from './ic_plus_gray.svg';
+export { default as icPlusBlue } from './ic_plus_blue.svg';
+export { default as icCheckEmpty } from './ic_check_empty.svg';
+export { default as icCheckActive } from './ic_check_active.svg';
 export { default as icCloseBg } from './ic_close_bg.svg';
 export { default as icAlert } from './ic_alert.svg';

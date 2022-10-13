@@ -1,14 +1,15 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import styled from 'styled-components';
+import useModal from '@src/hooks/useModal';
 import Button from '@src/components/Register/Button';
 import ImageDiv from '@src/components/common/ImageDiv';
 import SelectHomeImage from '@src/components/Register/SelectHomeImage';
 import HomeInformation from '@src/components/Register/HomeInformation';
 import HomePrecuations from '@src/components/Register/HomePrecautions';
-import { icBack, icCloseBg } from 'public/assets/icons';
-import { useState } from 'react';
-import styled from 'styled-components';
 import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
-import { useRouter } from 'next/router';
-import useModal from '@src/hooks/useModal';
+import { icBack, icCloseBg } from 'public/assets/icons';
+import PeopleInformation from '@src/components/Register/PeopleInformation';
 
 export default function Register() {
   const router = useRouter();
@@ -50,7 +51,7 @@ export default function Register() {
     return notEssentialList.includes(pageNum);
   };
   const pages = [
-    <HomeInformation setNextValid={setNextValid} />,
+    <PlaceInputContainer setNextValid={setNextValid} />,
     <SelectHomeImage
       setFiles={setFiles}
       setImages={setImages}
@@ -59,8 +60,9 @@ export default function Register() {
       setRepresentImg={setRepresentImg}
       setNextValid={setNextValid}
     />,
+    <PeopleInformation />,
+    <HomeInformation setNextValid={setNextValid} />,
     <HomePrecuations setNextValid={setNextValid} />,
-    <PlaceInputContainer setNextValid={setNextValid} />,
   ];
 
   const { openModal, Modal }: any = useModal({
