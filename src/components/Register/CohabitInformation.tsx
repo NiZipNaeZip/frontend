@@ -1,12 +1,7 @@
-import { icCheckEmpty } from 'public/assets/icons';
-import { useState } from 'react';
 import styled from 'styled-components';
 import CheckboxButton from '../common/CheckboxButton';
-import ImageDiv from '../common/ImageDiv';
 
 function CohabitInformation() {
-  const [isChecked, setIsChecked] = useState();
-
   return (
     <StCohabitInformation>
       <CheckboxButton isChecked={true} option="집 전체" description="모든 공간을 단독으로 사용하고 있어요." />
