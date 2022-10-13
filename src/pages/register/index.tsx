@@ -35,7 +35,7 @@ export default function Register() {
   };
 
   const pages = [
-    <PlaceInputContainer />,
+    <PlaceInputContainer setNextValid={setNextValid} />,
     files.length === 0 ? (
       <UploadImage setFiles={setFiles} setImages={setImages} />
     ) : (

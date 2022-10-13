@@ -1,14 +1,24 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Dispatch, SetStateAction } from 'react';
 
-function PlaceInputContainer() {
+interface PlaceInputContainerProps {
+  setNextValid: Dispatch<SetStateAction<boolean>>;
+}
+
+function PlaceInputContainer(props: PlaceInputContainerProps) {
+  const { setNextValid } = props;
   const [detail, setDetail] = useState('');
   const router = useRouter();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDetail(e.target.value);
   };
+
+  useEffect(() => {
+    setNextValid(detail ? true : false);
+  }, [detail]);
 
   return (
     <StPlaceInputContainer>
