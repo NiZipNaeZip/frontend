@@ -15,12 +15,14 @@ export default function useModal(props: IProps) {
   const { isConfirm, title, rightComment, content, leftComment, handleRightButton, handleLeftButton } = props;
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
   const handleRightButtonClick = () => {
     if (isConfirm) {
       setIsOpen(false);
       return;
     }
     if (handleRightButton) handleRightButton();
+    setIsOpen(false);
   };
   const modal = () => (
     <Modal
@@ -30,7 +32,11 @@ export default function useModal(props: IProps) {
       title={title}
       rightComment={rightComment}
       leftComment={leftComment}
-      handleLeftButton={handleLeftButton}
+      closeModal={closeModal}
+      handleLeftButton={() => {
+        handleLeftButton();
+        setIsOpen(false);
+      }}
       handleRightButton={handleRightButtonClick}
     />
   );

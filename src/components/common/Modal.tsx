@@ -1,4 +1,6 @@
+import { icClose } from 'public/assets/icons';
 import styled from 'styled-components';
+import ImageDiv from './ImageDiv';
 
 interface IProps {
   isConfirm: boolean;
@@ -7,14 +9,30 @@ interface IProps {
   content: string;
   leftComment: string;
   rightComment: string;
+  closeModal: () => void;
   handleRightButton: () => void;
   handleLeftButton: () => void;
 }
 export default function Modal(props: IProps) {
-  const { isOpen, isConfirm, title, content, leftComment, rightComment, handleRightButton, handleLeftButton } = props;
+  const {
+    isOpen,
+    isConfirm,
+    title,
+    content,
+    leftComment,
+    rightComment,
+    handleRightButton,
+    handleLeftButton,
+    closeModal,
+  } = props;
   return (
-    <StModalBackground isOpen={isOpen}>
-      <StModalContent isConfirm={isConfirm}>
+    <StModalBackground isOpen={isOpen} onClick={closeModal}>
+      <StModalContent isConfirm={isConfirm} onClick={(e) => e.stopPropagation()}>
+        <div>
+          <div />
+          <div />
+          <ImageDiv src={icClose} className="" alt="" onClick={closeModal} />
+        </div>
         <h5>{title}</h5>
         <pre>{content}</pre>
         <div>
@@ -42,12 +60,13 @@ const StModalBackground = styled.div<{ isOpen: boolean }>`
   padding: 0 20px;
 `;
 const StModalContent = styled.div<{ isConfirm: boolean }>`
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  height: 224px;
+  height: 244px;
   margin: 60% auto;
   border-radius: 10px;
   background-color: white;
@@ -78,6 +97,8 @@ const StModalContent = styled.div<{ isConfirm: boolean }>`
       width: 100%;
       height: 50px;
       border-radius: 10px;
+      margin-top: 25px;
+      margin-bottom: 20px;
     }
     #submit {
       background-color: ${({ isConfirm }) => (isConfirm ? '#ef4040' : '#FFB84D')};
@@ -85,7 +106,11 @@ const StModalContent = styled.div<{ isConfirm: boolean }>`
     }
     #cancle {
       background-color: ${({ isConfirm }) => (isConfirm ? '#ececec' : '#13CC89')};
-      background-color: #ececec;
     }
+  }
+  & > div:first-child {
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
   }
 `;

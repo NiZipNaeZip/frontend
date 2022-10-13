@@ -36,7 +36,7 @@ export default function Detail() {
   const { openModal, Modal }: any = useModal({
     isConfirm: false,
     title: '다른곳도 둘러볼까요?',
-    content: `                육지를 선택하면 제주의 집을,
+    content: `    육지를 선택하면 제주의 집을,
     제주를 선택하면 육지의 집을 살펴볼 수 있습니다.`,
     leftComment: '제주',
     rightComment: '육지',
@@ -47,7 +47,9 @@ export default function Detail() {
     <>
       <Modal />
       <StMainContainer>
-        <span onClick={openModal}>{location}dd</span>
+        <div>
+          <h5 onClick={openModal}>{location === 'jeju' ? '제주' : '한국'}</h5>
+        </div>
         {data.map((info) => (
           <ThumbnailInfo {...info} />
         ))}
@@ -56,4 +58,21 @@ export default function Detail() {
   );
 }
 
-const StMainContainer = styled.div``;
+const StMainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > div:first-child {
+    width: calc(100% - 40px);
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 59px;
+    margin-bottom: 26px;
+    border-radius: 60px;
+    box-shadow: 0px 7px 18px 0px #0000000a;
+    h5 {
+      line-height: 59px;
+      margin-left: 54px;
+    }
+  }
+`;
