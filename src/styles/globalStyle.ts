@@ -36,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
   
-  body, button {
+  body, button, input, textarea {
     font-family: 'Noto Sans KR', sans-serif;
   }
   
@@ -46,6 +46,11 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
     background-color: transparent;
     -webkit-tap-highlight-color : transparent;
+  }
+
+  input {
+    outline: none;
+    border: none;
   }
   
   a, a:visited {
