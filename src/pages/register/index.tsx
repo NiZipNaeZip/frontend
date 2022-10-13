@@ -1,62 +1,73 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Button from '@src/components/Register/Button';
+import ImageDiv from '@src/components/common/ImageDiv';
+import SelectImage from '@src/components/Register/SelectImage';
+import UploadImage from '@src/components/Register/UploadImage';
+import { icBack } from 'public/assets/icons';
 import { useState } from 'react';
 import styled from 'styled-components';
+import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
 
-function Register() {
-  const [detail, setDetail] = useState('');
-  const router = useRouter();
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setDetail(e.target.value);
-  };
-
+export default function Register() {
+  const [pageIdx, setPageIdx] = useState<number>(0);
+  const [files, setFiles] = useState<Blob[]>([]);
+  const [images, setImages] = useState<string[]>([]);
+  const [representImg, setRepresentImg] = useState<string | null>(null);
+  const [nextValid, setNextValid] = useState<boolean>(false);
+  const pages = [
+    <PlaceInputContainer />,
+    files.length === 0 ? (
+      <UploadImage setFiles={setFiles} setImages={setImages} />
+    ) : (
+      <SelectImage
+        images={images}
+        representImg={representImg}
+        setRepresentImg={setRepresentImg}
+        setNextValid={setNextValid}
+      />
+    ),
+  ];
   return (
     <StRegister>
-      <h1>어디에 살고 계신가요?</h1>
-      <div>
-        <input name="zoneCode" value={router.query?.zoneCode} readOnly />
-        <Link href="/search">
-          <a>주소 찾기</a>
-        </Link>
-      </div>
-      <input name="address" value={router.query?.address} readOnly />
-      <input value={detail} onChange={handleChange} />
+      <StHeader>
+        <ImageDiv className="test" src={icBack} alt="" />
+        <div>
+          <span id="page-num">
+            {pageIdx + 1}/{pages.length}
+          </span>
+          <span id="cancle">X</span>
+        </div>
+      </StHeader>
+      {pages[pageIdx]}
+      <Button name="다음으로" handleClick={() => setPageIdx((prev) => prev + 1)} nextValid={nextValid} />
     </StRegister>
   );
 }
 
-export default Register;
-
-const StRegister = styled.div`
+const StRegister = styled.div``;
+const StHeader = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-
-  h1 {
-    font-weight: 700;
-    font-size: 2.1rem;
-    line-height: 160.3%;
-  }
-
-  div {
+  width: 375px;
+  height: 60px;
+  align-items: center;
+  justify-content: space-between;
+  & > div {
     display: flex;
-    gap: 1.9rem;
-
-    a {
-      width: 12rem;
-      height: 4.6rem;
-      background: #17cbd3;
-      border-radius: 10px;
-    }
+    margin-right: 20px;
   }
-
-  input {
-    border: 0.1rem solid #efefef;
-    border-radius: 1rem;
-    height: 4.6rem;
+  span {
+    display: block;
+    background-color: #eeeeee;
+    text-align: center;
+    height: 27px;
+    line-height: 27px;
   }
-
-  input:not(:last-child) {
-    cursor: default;
+  #page-num {
+    width: 55px;
+    border-radius: 29px;
+    margin-right: 11px;
+  }
+  #cancle {
+    width: 27px;
+    border-radius: 50%;
   }
 `;

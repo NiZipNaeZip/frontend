@@ -1,4 +1,4 @@
-import PlaceSearchBox from '@src/components/register/PlaceSearchBox';
+import PlaceSearchBox from '@src/components/Register/PlaceSearchBox';
 
 function Search() {
   return (
