@@ -25,20 +25,14 @@ export default function UploadImage(props: IProps) {
 
 const StDropZoneDiv = styled.div`
   position: relative;
-  width: 144px;
   margin-bottom: 24px;
   margin-left: -10px;
   margin-top: 100px;
   div {
-    width: 375px;
+    width: 100%;
     height: 214px;
     background: #d9d9d9;
   }
-`;
-
-const StHeaderDiv = styled.div`
-  margin-top: 40px;
-  margin-bottom: 100px;
 `;
 
 const StInformationDiv = styled.div`

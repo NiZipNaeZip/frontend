@@ -15,7 +15,7 @@ interface IProps {
 export default function SelectHomeImage(props: IProps) {
   const { setFiles, setImages, images, representImg, setRepresentImg, setNextValid } = props;
   return (
-    <div>
+    <StMainDiv>
       <StHeaderDiv>
         <h5>내 집은</h5>
         <h5>이렇게 생겼어요 !</h5>
@@ -30,10 +30,14 @@ export default function SelectHomeImage(props: IProps) {
           setNextValid={setNextValid}
         />
       )}
-    </div>
+    </StMainDiv>
   );
 }
 
+const StMainDiv = styled.div`
+  width: 100%;
+  /* overflow: hidden; */
+`;
 const StHeaderDiv = styled.div`
   margin-top: 40px;
 `;
