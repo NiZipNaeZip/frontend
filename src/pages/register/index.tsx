@@ -10,6 +10,7 @@ import HomePrecuations from '@src/components/Register/HomePrecautions';
 import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
 import { icBack, icCloseBg } from 'public/assets/icons';
 import PeopleInformation from '@src/components/Register/PeopleInformation';
+import LinkShare from '@src/components/Register/LinkShare';
 
 export default function Register() {
   const router = useRouter();
@@ -27,10 +28,10 @@ export default function Register() {
       setNextValid(false);
       return;
     }
-    // if (pageIdx === 0) {
-    //   router.back();
-    //   return;
-    // }
+    if (pageIdx === 0) {
+      router.back();
+      return;
+    }
     setNextValid(false);
     setPageIdx((prev) => prev - 1);
   };
@@ -60,9 +61,10 @@ export default function Register() {
       setRepresentImg={setRepresentImg}
       setNextValid={setNextValid}
     />,
-    <PeopleInformation />,
+    <PeopleInformation setNextValid={setNextValid} />,
     <HomeInformation setNextValid={setNextValid} />,
     <HomePrecuations setNextValid={setNextValid} />,
+    <LinkShare setNextValid={setNextValid} />,
   ];
 
   const { openModal, Modal }: any = useModal({
@@ -94,7 +96,7 @@ export default function Register() {
           {pageIdx + 1 !== pages.length ? (
             <Button name="다음으로" handleClick={handleClickNext} nextValid={nextValid} />
           ) : (
-            <Button name="등록완료" handleClick={handleClickSubmit} nextValid={nextValid} />
+            <Button name="등록하기" handleClick={handleClickSubmit} nextValid={nextValid} />
           )}
         </StFooter>
       </StRegister>
@@ -105,6 +107,7 @@ export default function Register() {
 const StFooter = styled.div`
   padding: 0 20px;
   width: 100%;
+  max-width: 420px;
   display: flex;
   flex-direction: column;
   text-align: center;

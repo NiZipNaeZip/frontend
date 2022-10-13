@@ -10,13 +10,10 @@ function SEO(props: SEOProps) {
   return (
     <Head>
       <title>{title}</title>
-      <meta name="description" content="설명" />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="사이트 이름" />
-      <meta property="og:title" content="사이트 타이틀 | 이런 식으로 작성" />
-      <meta property="og:description" content="설명" />
+      <meta property="og:site_name" content="니집내집" />
+      <meta property="og:title" content="니집내집" />
       <meta property="og:locale" content="ko_KR" />
-      <meta name="keywords" content="키워드1, 키워드2, 키워드3" />
     </Head>
   );
 }

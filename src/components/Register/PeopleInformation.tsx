@@ -1,9 +1,16 @@
+import { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
 import HouseType from './HouseType';
 import Counter from './Counter';
 import CohabitInformation from './CohabitInformation';
 
-function PeopleInformation() {
+interface PeopleInformationProps {
+  setNextValid: Dispatch<SetStateAction<boolean>>;
+}
+
+function PeopleInformation(props: PeopleInformationProps) {
+  const { setNextValid } = props;
+  // 백지연 TODO
   return (
     <div>
       <StTitle>어떤 집인가요?</StTitle>

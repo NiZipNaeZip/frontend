@@ -3,16 +3,17 @@ import { icCheckActive, icCheckEmpty } from 'public/assets/icons';
 import ImageDiv from './ImageDiv';
 
 interface CheckboxButtonProps {
+  onClick: () => void;
   isChecked: boolean;
   option: string;
   description: string;
 }
 
 function CheckboxButton(props: CheckboxButtonProps) {
-  const { isChecked, option, description } = props;
+  const { onClick, isChecked, option, description } = props;
 
   return (
-    <StCheckboxButton isChecked={isChecked}>
+    <StCheckboxButton onClick={onClick} isChecked={isChecked}>
       <ImageDiv className="check" src={isChecked ? icCheckActive : icCheckEmpty} alt="" />
       <StTextBox>
         <div>{option}</div>
