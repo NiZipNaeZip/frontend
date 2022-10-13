@@ -11,7 +11,7 @@ export default function HomePrecuations(props: IProps) {
   const [precuations, setPrecuations] = useState<string>('');
   setNextValid(true);
   return (
-    <StMainDiv>
+    <StHomePrecuations>
       <StHeaderDiv>
         <ImageDiv src={icAlert} className="test" alt="" />
         <h5>이런 활동은 주의해주세요</h5>
@@ -20,20 +20,20 @@ export default function HomePrecuations(props: IProps) {
         <textarea value={precuations} onChange={(e) => setPrecuations(e.target.value)} />
         <span>최대 500자</span>
       </StRecommendInfo>
-    </StMainDiv>
+    </StHomePrecuations>
   );
 }
 
 const StHeaderDiv = styled.div`
   display: flex;
   margin-top: 40px;
-  padding: 0 20px;
 `;
 
-const StMainDiv = styled.div`
+const StHomePrecuations = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding: 0 20px;
 
   & > span {
     display: block;
