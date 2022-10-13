@@ -18,7 +18,7 @@ function CloseHeader() {
 export default CloseHeader;
 
 const StCloseHeader = styled.div`
-  padding: 16px 0 17px 0;
+  padding: 16px 20px 17px 20px;
   height: 60px;
 
   .close {
