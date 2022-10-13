@@ -9,4 +9,6 @@ export { default as icCheckActive } from './ic_check_active.svg';
 export { default as icCloseBg } from './ic_close_bg.svg';
 export { default as icAlert } from './ic_alert.svg';
 export { default as icLocation } from './ic_location.svg';
+export { default as icLocationColored } from './ic_location_colored.svg';
 export { default as icLine } from './ic_line.svg';
+export { default as icCalendar } from './ic_calendar.svg';
