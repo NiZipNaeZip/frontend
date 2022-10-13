@@ -1,9 +1,13 @@
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import ImageDiv from '../common/ImageDiv';
 import { icMinusActive, icMinusGray, icPlusActive, icPlusGray } from 'public/assets/icons';
 
-function Counter() {
+interface IProps {
+  setNextValid: Dispatch<SetStateAction<boolean>>;
+}
+function Counter(props: IProps) {
+  const { setNextValid } = props;
   const [count, setCount] = useState(0);
   const [isMinusAdjustable, setIsMinusAdjustable] = useState(false);
   const [isPlusAdjustable, setIsPlusAdjustable] = useState(true);
@@ -23,6 +27,11 @@ function Counter() {
     } else if (count === 0) {
       setIsPlusAdjustable(true);
       setIsMinusAdjustable(false);
+      setNextValid(false);
+    } else {
+      setIsPlusAdjustable(true);
+      setIsMinusAdjustable(true);
+      setNextValid(true);
     }
   }, [count]);
 
@@ -32,7 +41,7 @@ function Counter() {
         <ImageDiv className="button" src={isPlusAdjustable ? icPlusActive : icPlusGray} alt="-" />
       </button>
       <div>{count > 3 ? `3명 이상` : `${count}명`}</div>
-      <button onClick={handleMinusClick}>
+      <button onClick={handleMinusClick} disabled={!isMinusAdjustable}>
         <ImageDiv className="button" src={isMinusAdjustable ? icMinusActive : icMinusGray} alt="+" />
       </button>
     </StCounter>
