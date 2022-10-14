@@ -48,7 +48,7 @@ export default function Detail() {
           {location === 'land' && <span>서울, 경기, 인천, 부산, 강원 등</span>}
         </div>
         {houseList.map((house: any) => (
-          <StDetailContainer key={house.houseId} onClick={() => {}}>
+          <StDetailContainer key={house.houseId} onClick={() => router.push(`/detail/info/${house.houseId}`)}>
             <img src={`https://jipyo.link/${house.filePath.split('/').pop()}`} width="100%" height="222px" />
             <StContentWrapper>
               <span>{house.houseName}</span>
