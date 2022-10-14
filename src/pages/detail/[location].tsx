@@ -41,7 +41,7 @@ export default function Detail() {
             alt=""
             onClick={(e) => {
               e.stopPropagation;
-              router.back();
+              router.push('/');
             }}
           />
           <h5>{location === 'jeju' ? '제주' : '육지'}</h5>

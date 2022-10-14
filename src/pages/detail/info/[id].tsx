@@ -7,7 +7,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import { useState } from 'react';
 import { icLike, icMark } from 'public/assets/icons';
 import BottomSheet from '@src/components/Register/BottomSheet';
-import useToast from '@src/hooks/useToast';
 
 const imgList = [imgUpload, imgUpload, imgUpload, imgUpload];
 export default function InfoDetail() {

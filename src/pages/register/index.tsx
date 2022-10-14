@@ -29,7 +29,7 @@ export default function Register() {
       return;
     }
     if (pageIdx === 0) {
-      router.back();
+      router.push('/');
       return;
     }
     setNextValid(false);
@@ -43,7 +43,7 @@ export default function Register() {
 
   const handleClickSubmit = () => {
     //todo : 오브젝트 형태로 넘겨주기
-    router.push('/');
+    router.push('/?register=true');
   };
 
   const isNotEssential = (pageNum: number) => {
