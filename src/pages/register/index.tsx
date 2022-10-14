@@ -121,6 +121,12 @@ const StFooter = styled.div`
   bottom: 0px;
   padding-bottom: 46px;
   background-color: white;
+
+  & > span {
+    font-size: 12px;
+    line-height: 160.3%;
+    color: #6765ff;
+  }
 `;
 const StMainContent = styled.div`
   overflow: auto;
