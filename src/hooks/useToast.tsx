@@ -42,6 +42,7 @@ const StToastContainer = styled.div<{ isOpen: boolean }>`
   position: fixed;
   top: 76px;
   width: calc(100% - 40px);
+  max-width: 380px;
   margin-left: 20px;
   height: 84px;
   border-radius: 10px;
@@ -49,7 +50,6 @@ const StToastContainer = styled.div<{ isOpen: boolean }>`
   background-color: black;
   color: white;
   //styleName: regular/p;
-  font-family: Noto Sans KR;
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
