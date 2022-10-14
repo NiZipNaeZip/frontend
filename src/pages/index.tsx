@@ -32,7 +32,7 @@ function Home() {
       <ToastModal />
       <Modal />
       <StHome>
-        <SEO title="메인 페이지" />
+        <SEO title="니집내집" />
         <div id="header">
           <ImageDiv src={icBrand} className="test" alt="" />
           <ImageDiv src={icNotice} className="test" alt="" onClick={() => router.push('/notification')} />
@@ -110,7 +110,7 @@ const StHome = styled.div`
   height: 100%;
   min-width: 380px;
   min-height: 844px;
-  background-image: url('assets/images/img_main.svg');
+  background-image: url('/assets/images/img_main.svg');
   font-size: 2rem;
   line-height: 2rem;
   #main-background {

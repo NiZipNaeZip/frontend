@@ -11,6 +11,7 @@ import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
 import { icBack, icCloseBg } from 'public/assets/icons';
 import PeopleInformation from '@src/components/Register/PeopleInformation';
 import LinkShare from '@src/components/Register/LinkShare';
+import SEO from '@src/components/common/SEO';
 
 export default function Register() {
   const router = useRouter();
@@ -22,7 +23,7 @@ export default function Register() {
 
   const handleClickPrevious = () => {
     //todo : 페이지 인덱스에 따라 다르게 동작
-    if (pageIdx === 1) {
+    if (pageIdx === 1 && files.length !== 0) {
       setFiles([]);
       setImages([]);
       setNextValid(false);
@@ -79,6 +80,7 @@ export default function Register() {
 
   return (
     <>
+      <SEO title="집 등록" />
       <Modal />
       <StRegister>
         <StHeader>
@@ -108,12 +110,15 @@ const StFooter = styled.div`
   padding: 0 20px;
   width: 100%;
   max-width: 420px;
+  height: 107px;
   display: flex;
   flex-direction: column;
   text-align: center;
   position: fixed;
   margin: 0 auto;
-  bottom: 46px;
+  bottom: 0px;
+  padding-bottom: 46px;
+  background-color: white;
 `;
 const StMainContent = styled.div`
   overflow: auto;

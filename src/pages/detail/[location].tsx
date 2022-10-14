@@ -1,4 +1,5 @@
 import ImageDiv from '@src/components/common/ImageDiv';
+import SEO from '@src/components/common/SEO';
 import useModal from '@src/hooks/useModal';
 import { api } from '@src/services/api';
 import { client } from '@src/services/libs/api';
@@ -32,6 +33,7 @@ export default function Detail() {
 
   return (
     <>
+      <SEO title="상세 페이지" />
       <Modal />
       <StMainContainer>
         <div onClick={openModal}>
@@ -48,7 +50,7 @@ export default function Detail() {
           {location === 'land' && <span>서울, 경기, 인천, 부산, 강원 등</span>}
         </div>
         {houseList.map((house: any) => (
-          <StDetailContainer key={house.houseId} onClick={() => {}}>
+          <StDetailContainer key={house.houseId} onClick={() => router.push(`/detail/info/${house.houseId}`)}>
             <img src={`https://jipyo.link/${house.filePath.split('/').pop()}`} width="100%" height="222px" />
             <StContentWrapper>
               <span>{house.houseName}</span>
