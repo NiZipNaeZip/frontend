@@ -1,3 +1,4 @@
+import { imgAdd } from 'public/assets/images';
 import { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
 import DropZone from '../../common/DropZone';
@@ -29,9 +30,10 @@ const StDropZoneDiv = styled.div`
   margin-left: -10px;
   margin-top: 100px;
   div {
-    width: 100%;
+    width: 375px;
     height: 214px;
-    background: #d9d9d9;
+    margin: 0 auto;
+    background: url('/assets/images/img_add.svg');
   }
 `;
 
