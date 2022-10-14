@@ -15,7 +15,7 @@ function CheckboxButton(props: CheckboxButtonProps) {
   return (
     <StCheckboxButton onClick={onClick} isChecked={isChecked}>
       <ImageDiv className="check" src={isChecked ? icCheckActive : icCheckEmpty} alt="" />
-      <StTextBox>
+      <StTextBox isChecked={isChecked}>
         <div>{option}</div>
         <div>{description}</div>
       </StTextBox>
@@ -40,7 +40,7 @@ const StCheckboxButton = styled.button<{ isChecked: boolean }>`
   border: 1px solid #eef3f9;`}
 `;
 
-const StTextBox = styled.div`
+const StTextBox = styled.div<{ isChecked: boolean }>`
   width: 100%;
   flex: 1;
   text-align: left;
@@ -49,7 +49,7 @@ const StTextBox = styled.div`
     font-weight: 500;
     font-size: 16px;
     line-height: 160.3%;
-    color: #6765ff;
+    color: ${({ isChecked }) => isChecked && `#6765ff`};
   }
 
   & > div:last-child {
