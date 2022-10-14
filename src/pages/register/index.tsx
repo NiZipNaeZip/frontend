@@ -24,14 +24,14 @@ export default function Register() {
 
   const handleClickPrevious = () => {
     //todo : 페이지 인덱스에 따라 다르게 동작
-    if (pageIdx === 1) {
+    if (pageIdx === 1 && files.length !== 0) {
       setFiles([]);
       setImages([]);
       setNextValid(false);
       return;
     }
     if (pageIdx === 0) {
-      router.back();
+      router.push('/');
       return;
     }
     setNextValid(false);
@@ -45,7 +45,7 @@ export default function Register() {
 
   const handleClickSubmit = () => {
     //todo : 오브젝트 형태로 넘겨주기
-    router.push('/');
+    router.push('/?register=true');
   };
 
   const isNotEssential = (pageNum: number) => {
@@ -113,12 +113,15 @@ const StFooter = styled.div`
   padding: 0 20px;
   width: 100%;
   max-width: 420px;
+  height: 107px;
   display: flex;
   flex-direction: column;
   text-align: center;
   position: fixed;
   margin: 0 auto;
-  bottom: 46px;
+  bottom: 0px;
+  padding-bottom: 46px;
+  background-color: white;
 `;
 const StMainContent = styled.div`
   overflow: auto;

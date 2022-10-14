@@ -1,13 +1,16 @@
 import ImageDiv from '@src/components/common/ImageDiv';
 import SEO from '@src/components/common/SEO';
 import useModal from '@src/hooks/useModal';
+import useToast from '@src/hooks/useToast';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { icBrand, icHome, icNotice } from 'public/assets/icons';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 
 function Home() {
   const router = useRouter();
+  const query = router.query;
   const { openModal, Modal }: any = useModal({
     isConfirm: false,
     title: '어디에 사시나요?',
@@ -17,8 +20,16 @@ function Home() {
     handleLeftButton: () => router.push('/detail/jeju'),
     handleRightButton: () => router.push('/detail/land'),
   });
+  const { openToast, ToastModal } = useToast(`집 등록이 완료되었습니다!
+니집내집과 함께 색다른 집에서 함께해요`);
+  useEffect(() => {
+    if (query.register) {
+      openToast();
+    }
+  }, [query]);
   return (
     <>
+      <ToastModal />
       <Modal />
       <StHome>
         <SEO title="니집내집" />

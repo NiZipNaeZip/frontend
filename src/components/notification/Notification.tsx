@@ -1,7 +1,5 @@
-import useToast from '@src/hooks/useToast';
 import { useRouter } from 'next/router';
 import { icCalendar, icLocationColored } from 'public/assets/icons';
-import { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
 import ImageDiv from '../common/ImageDiv';
 
@@ -42,7 +40,7 @@ export default function Notification(props: IProps) {
           <button onClick={() => router.push(messageLink)}>수락</button>
         </StButtonContainer>
       ) : (
-        <StReConversationButton>대화하기</StReConversationButton>
+        <StReConversationButton onClick={() => router.push(messageLink)}>대화하기</StReConversationButton>
       )}
     </StMainContainer>
   );
