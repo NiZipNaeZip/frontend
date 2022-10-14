@@ -12,6 +12,7 @@ import { icBack, icCloseBg } from 'public/assets/icons';
 import PeopleInformation from '@src/components/Register/PeopleInformation';
 import LinkShare from '@src/components/Register/LinkShare';
 import SEO from '@src/components/common/SEO';
+import AttractionJeju from '@src/components/Register/Attraction/AttractionJeju';
 
 export default function Register() {
   const router = useRouter();
@@ -53,6 +54,7 @@ export default function Register() {
     return notEssentialList.includes(pageNum);
   };
   const pages = [
+    <AttractionJeju setNextValid={setNextValid} />,
     <PlaceInputContainer setNextValid={setNextValid} />,
     <SelectHomeImage
       setFiles={setFiles}
@@ -63,6 +65,7 @@ export default function Register() {
       setNextValid={setNextValid}
     />,
     <PeopleInformation setNextValid={setNextValid} />,
+    // 여기에 취미 및 레저 (step 4) 추가
     <HomeInformation setNextValid={setNextValid} />,
     <HomePrecuations setNextValid={setNextValid} />,
     <LinkShare setNextValid={setNextValid} />,
