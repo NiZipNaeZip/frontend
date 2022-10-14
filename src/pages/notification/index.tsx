@@ -70,6 +70,7 @@ export default function NotificationPage() {
 
 const StMainContainer = styled.div``;
 const StHeader = styled.div`
+  padding: 0 20px;
   width: 100%;
   display: flex;
   height: 60px;

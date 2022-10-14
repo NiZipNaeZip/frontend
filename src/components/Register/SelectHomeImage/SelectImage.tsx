@@ -31,7 +31,8 @@ const StSelectImage = styled.div`
   }
   & > img {
     height: 312px;
-    width: 343px;
+    width: 100%;
+    max-width: 420px;
     border-radius: 8px;
   }
 `;
