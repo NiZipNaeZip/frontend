@@ -23,13 +23,12 @@ export default function Detail() {
     handleRightButton: () => router.replace('/detail/land'),
   });
   const [houseList, setHouseList] = useState<any>([]);
-
   useEffect(() => {
     (async () => {
-      const { data } = await client.get(`/house/제주`);
+      const { data } = await client.get(`/house/${location === 'jeju' ? '제주' : '육지'}`);
       setHouseList(data);
     })();
-  }, []);
+  }, [location]);
 
   return (
     <>
@@ -56,7 +55,7 @@ export default function Detail() {
               <span>{house.houseName}</span>
               <div>
                 <ImageDiv src={icLocation} className="test" alt="" />
-                <span>{location === 'jeju' ? '제주' : '육지'}</span>
+                <span>{house.address}</span>
               </div>
               <StTagContainer>
                 <span>{house.houseInfoDTO.buildingType}</span>

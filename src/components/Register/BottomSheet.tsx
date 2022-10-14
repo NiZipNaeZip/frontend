@@ -1,4 +1,5 @@
 import useToast from '@src/hooks/useToast';
+import { client } from '@src/services/libs/api';
 import { icClose } from 'public/assets/icons';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -17,6 +18,15 @@ function BottomSheet(props: BottomSheetProps) {
   const { openToast, ToastModal } = useToast(`채팅 신청 완료!
 상대방이 수락하면 이야기를 나눌 수 있습니다`);
 
+  const handleSubmit = () => {
+    client.post('/notice/send', {
+      endDate: lastDate,
+      receiverId: 1,
+      senderId: 2,
+      startDate: startDate,
+    });
+    openToast();
+  };
   useEffect(() => {
     const startNumber = Number(startDate.slice(-2));
     const lastNumber = Number(lastDate.slice(-2));
@@ -45,7 +55,7 @@ function BottomSheet(props: BottomSheetProps) {
           <div>-</div>
           <input type="date" onChange={(e) => setLastDate(e.target.value)} />
         </StInputContainer>
-        <StChattingButton onClick={openToast} isSelected={startDate && lastDate ? true : false}>
+        <StChattingButton onClick={handleSubmit} isSelected={startDate && lastDate ? true : false}>
           1:1 대화 신청하기
         </StChattingButton>
       </StBottomSheet>

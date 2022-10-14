@@ -42,7 +42,7 @@ const StImageContainer = styled.div`
   margin-left: -10px;
   img {
     margin-top: 8px;
-    margin-left: 10px;
+    margin-left: 11px;
     height: 108px;
     width: 108px;
     border-radius: 8px;

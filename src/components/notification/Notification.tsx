@@ -1,3 +1,4 @@
+import { client } from '@src/services/libs/api';
 import { useRouter } from 'next/router';
 import { icCalendar, icLocationColored } from 'public/assets/icons';
 import styled from 'styled-components';
@@ -8,6 +9,7 @@ interface IProps {
   title: string;
   location: string;
   period: string;
+  alarmId: number;
   // alarmStatus: 'ACCEPT' | 'UNREAD';
   status: string;
   userName?: string;
@@ -16,8 +18,7 @@ interface IProps {
 
 export default function Notification(props: IProps) {
   const router = useRouter();
-  const { img, title, location, period, status, messageLink } = props;
-
+  const { img, title, location, alarmId, period, status, messageLink } = props;
   return (
     <StMainContainer>
       <div>
@@ -37,7 +38,14 @@ export default function Notification(props: IProps) {
       {status === 'UNREAD' ? (
         <StButtonContainer>
           <button>거절</button>
-          <button onClick={() => router.push(messageLink)}>수락</button>
+          <button
+            onClick={() => {
+              client.get(`/notice/accept/${alarmId}`);
+              router.push(messageLink);
+            }}
+          >
+            수락
+          </button>
         </StButtonContainer>
       ) : (
         <StReConversationButton onClick={() => router.push(messageLink)}>대화하기</StReConversationButton>
@@ -109,7 +117,7 @@ const StButtonContainer = styled.div`
   justify-content: space-between;
   margin-top: 24px;
   button {
-    width: 155px;
+    width: calc((100% - 40px - 20px) / 2);
     height: 46px;
     border-radius: 10px;
   }
