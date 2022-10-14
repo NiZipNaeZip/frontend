@@ -41,7 +41,7 @@ const StOneWordHeader = styled.div`
 `;
 
 const StRecommendHeader = styled.div`
-  margin-top: 88px;
+  margin-top: 38px;
 `;
 
 const StBrDiv = styled.div`
