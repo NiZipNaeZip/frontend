@@ -32,16 +32,13 @@ function PeopleInformation(props: PeopleInformationProps) {
 export default PeopleInformation;
 
 const StLine = styled.div`
-  position: absolute;
   max-width: 420px;
-  width: calc(100% + 20px);
-  margin-left: -20px;
+  width: 100%;
   background: #f9f9f9;
   height: 10px;
 `;
 
 const StTitle = styled.h2`
-  position: relative;
   padding: 0 20px;
   padding-top: 38px;
 
