@@ -99,7 +99,7 @@ const StHome = styled.div`
   height: 100%;
   min-width: 380px;
   min-height: 844px;
-  background-image: url('assets/images/img_main.svg');
+  background-image: url('/assets/images/img_main.svg');
   font-size: 2rem;
   line-height: 2rem;
   #main-background {
