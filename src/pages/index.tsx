@@ -49,6 +49,7 @@ export default Home;
 const StFooter = styled.div`
   position: fixed;
   width: 100%;
+  max-width: 420px;
   padding: 20px;
   bottom: 34px;
   display: flex;
@@ -117,7 +118,8 @@ const StHome = styled.div`
     justify-content: space-between;
     display: flex;
     height: 60px;
-    width: 375px;
+    width: 100%;
+    max-width: 420px;
     border-radius: 0px;
     align-items: center;
     margin-top: 40px;

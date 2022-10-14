@@ -78,7 +78,6 @@ const StMainContainer = styled.div`
     align-items: center;
     width: calc(100% - 40px);
     margin-top: 20px;
-    margin-left: 20px;
     height: 59px;
     margin-bottom: 26px;
     border-radius: 60px;
