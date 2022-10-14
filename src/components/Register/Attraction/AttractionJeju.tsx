@@ -1,5 +1,12 @@
 import CheckboxButton from '@src/components/common/CheckboxButton';
-import { imgActivitySmall, imgFarmSmall, imgOceanSmall, imgRoadSmall } from 'public/assets/images';
+import {
+  imgActivitySmall,
+  imgExerciseSmall,
+  imgFarmSmall,
+  imgOceanSmall,
+  imgRoadSmall,
+  imgSwimmingSmall,
+} from 'public/assets/images';
 import { Dispatch, SetStateAction, useState } from 'react';
 import styled from 'styled-components';
 
@@ -9,7 +16,8 @@ interface AttractionJejuProps {
 
 function AttractionJeju(props: AttractionJejuProps) {
   const { setNextValid } = props;
-  const [checkedList, setCheckedList] = useState<string[]>([]);
+  const [placeList, setPlaceList] = useState<string[]>([]);
+  const [rentalList, setRentalList] = useState<string[]>([]);
 
   return (
     <StAttractionJeju>
@@ -17,42 +25,60 @@ function AttractionJeju(props: AttractionJejuProps) {
       <StOptionList>
         <CheckboxButton
           image={imgOceanSmall}
-          onClick={() => setCheckedList([...checkedList, '해변'])}
-          isChecked={checkedList.includes('해변')}
+          onClick={() => setPlaceList([...placeList, '해변'])}
+          isChecked={placeList.includes('해변')}
           option="해변"
           description="집 근처에 바닷가가 있어요."
         />
         <CheckboxButton
           image={imgRoadSmall}
-          onClick={() => setCheckedList([...checkedList, '올레길'])}
-          isChecked={checkedList.includes('올레길')}
+          onClick={() => setPlaceList([...placeList, '올레길'])}
+          isChecked={placeList.includes('올레길')}
           option="올레길"
           description="집 근처에 산책 가능한 올레길이 있어요."
         />
         <CheckboxButton
           image={imgFarmSmall}
-          onClick={() => setCheckedList([...checkedList, '감귤따기'])}
-          isChecked={checkedList.includes('감귤따기')}
+          onClick={() => setPlaceList([...placeList, '감귤따기'])}
+          isChecked={placeList.includes('감귤따기')}
           option="감귤따기"
           description="집 근처 감귤농장에서 체험할 수 있어요."
         />
         <CheckboxButton
           image={imgActivitySmall}
-          onClick={() => setCheckedList([...checkedList, '액티비티 체험'])}
-          isChecked={checkedList.includes('액티비티 체험')}
+          onClick={() => setPlaceList([...placeList, '액티비티 체험'])}
+          isChecked={placeList.includes('액티비티 체험')}
           option="액티비티 체험"
           description="해녀 체험, 승마, 카약 등이 가능해요."
         />
       </StOptionList>
       <StLine />
       <StTitle>빌려드려요</StTitle>
+      <StOptionList>
+        <CheckboxButton
+          image={imgExerciseSmall}
+          onClick={() => setRentalList([...rentalList, '운동 기구'])}
+          isChecked={rentalList.includes('운동 기구')}
+          option="운동 기구"
+          description="요가 매트, 자전거, 산악 바이크 등"
+        />
+        <CheckboxButton
+          image={imgSwimmingSmall}
+          onClick={() => setRentalList([...rentalList, '물놀이 용품'])}
+          isChecked={rentalList.includes('물놀이 용품')}
+          option="물놀이 용품"
+          description="서핑 보드, 낚시 용품, 오리발 등"
+        />
+      </StOptionList>
     </StAttractionJeju>
   );
 }
 
 export default AttractionJeju;
 
-const StAttractionJeju = styled.div``;
+const StAttractionJeju = styled.div`
+  margin-bottom: 40px;
+`;
 
 const StTitle = styled.h2`
   padding: 0 20px;
