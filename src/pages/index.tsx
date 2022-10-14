@@ -13,8 +13,8 @@ function Home() {
   const query = router.query;
   const { openModal, Modal }: any = useModal({
     isConfirm: false,
-    title: '어디에 사시나요?',
-    content: '현재 사시는 땅을 선택해 주세요!',
+    title: '어디에 살고 싶나요?',
+    content: '',
     leftComment: '제주',
     rightComment: '육지',
     handleLeftButton: () => router.push('/detail/jeju'),
