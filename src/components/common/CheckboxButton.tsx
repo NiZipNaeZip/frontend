@@ -7,14 +7,16 @@ interface CheckboxButtonProps {
   isChecked: boolean;
   option: string;
   description: string;
+  image?: string;
 }
 
 function CheckboxButton(props: CheckboxButtonProps) {
-  const { onClick, isChecked, option, description } = props;
+  const { onClick, isChecked, option, description, image } = props;
 
   return (
     <StCheckboxButton onClick={onClick} isChecked={isChecked}>
       <ImageDiv className="check" src={isChecked ? icCheckActive : icCheckEmpty} alt="" />
+      {image && <ImageDiv className="circle" src={image} alt="" />}
       <StTextBox isChecked={isChecked}>
         <div>{option}</div>
         <div>{description}</div>
@@ -26,12 +28,20 @@ function CheckboxButton(props: CheckboxButtonProps) {
 export default CheckboxButton;
 
 const StCheckboxButton = styled.button<{ isChecked: boolean }>`
+  display: flex;
+  align-items: center;
   border-radius: 10px;
 
   .check {
     margin-left: 24px;
     width: 20px;
     height: 20px;
+  }
+
+  .circle {
+    margin: 12px 12px 12px 14px;
+    width: 54px;
+    height: 54px;
   }
 
   ${({ isChecked }) =>
