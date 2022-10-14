@@ -7,7 +7,7 @@ import {
   imgRoadSmall,
   imgSwimmingSmall,
 } from 'public/assets/images';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 interface AttractionJejuProps {
@@ -18,6 +18,7 @@ function AttractionJeju(props: AttractionJejuProps) {
   const { setNextValid } = props;
   const [placeList, setPlaceList] = useState<string[]>([]);
   const [rentalList, setRentalList] = useState<string[]>([]);
+  setNextValid(true);
 
   return (
     <StAttractionJeju>

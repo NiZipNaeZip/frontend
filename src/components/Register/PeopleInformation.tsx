@@ -10,7 +10,7 @@ interface PeopleInformationProps {
 
 function PeopleInformation(props: PeopleInformationProps) {
   const { setNextValid } = props;
-  // 백지연 TODO
+
   return (
     <div>
       <StTitle>어떤 집인가요?</StTitle>

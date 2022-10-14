@@ -50,11 +50,10 @@ export default function Register() {
 
   const isNotEssential = (pageNum: number) => {
     // 필수 항목 아닌 경우
-    const notEssentialList = [4];
+    const notEssentialList = [3, 4];
     return notEssentialList.includes(pageNum);
   };
   const pages = [
-    <AttractionJeju setNextValid={setNextValid} />,
     <PlaceInputContainer setNextValid={setNextValid} />,
     <SelectHomeImage
       setFiles={setFiles}
@@ -65,7 +64,7 @@ export default function Register() {
       setNextValid={setNextValid}
     />,
     <PeopleInformation setNextValid={setNextValid} />,
-    // 여기에 취미 및 레저 (step 4) 추가
+    <AttractionJeju setNextValid={setNextValid} />,
     <HomeInformation setNextValid={setNextValid} />,
     <HomePrecuations setNextValid={setNextValid} />,
     <LinkShare setNextValid={setNextValid} />,
