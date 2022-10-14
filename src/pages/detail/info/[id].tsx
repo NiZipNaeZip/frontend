@@ -5,14 +5,15 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useState } from 'react';
-import { icLike, icMark } from 'public/assets/icons';
+import { icBack, icLike, icMark } from 'public/assets/icons';
 import BottomSheet from '@src/components/Register/BottomSheet';
-import useToast from '@src/hooks/useToast';
 import SEO from '@src/components/common/SEO';
+import { useRouter } from 'next/router';
 
 const imgList = [imgUpload, imgUpload, imgUpload, imgUpload];
 export default function InfoDetail() {
   const [imgIdx, setImgIdx] = useState<number>(0);
+  const router = useRouter();
   const settings = {
     dots: false,
     infinite: true,
@@ -49,6 +50,9 @@ export default function InfoDetail() {
       <SEO title="상세 페이지" />
       <StMainContainer>
         <StSliderWrapper>
+          <div id="ic_back">
+            <ImageDiv onClick={() => router.back()} src={icBack} className="test" alt="" />
+          </div>
           <Slider {...settings}>
             {imgList.map((image, idx) => (
               <StImageWrapper key={idx}>
@@ -128,6 +132,13 @@ const StSliderWrapper = styled.div`
     color: white;
     text-align: center;
     line-height: 27px;
+  }
+  #ic_back {
+    position: absolute;
+    z-index: 999;
+    margin-top: 20px;
+    margin-bottom: -30px;
+    margin-left: 30px;
   }
 `;
 const StImageWrapper = styled.div`

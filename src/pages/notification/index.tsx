@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { icBack } from 'public/assets/icons';
 import ImageDiv from '@src/components/common/ImageDiv';
 import { useRouter } from 'next/router';
 import Notification from '@src/components/notification/Notification';
+import { client } from '@src/services/libs/api';
 
 const data = [
   {
@@ -49,9 +50,17 @@ const data = [
 ];
 export default function NotificationPage() {
   const router = useRouter();
+  const [noticeList, setNoticeList] = useState<any[]>([]);
   const handleClickPrevious = () => {
-    router.back();
+    router.push('/');
   };
+  useEffect(() => {
+    (async () => {
+      const { data } = await client.get(`/user/2/notice`);
+      console.log(data);
+      setNoticeList(data);
+    })();
+  }, []);
 
   return (
     <StMainContainer>
@@ -60,8 +69,17 @@ export default function NotificationPage() {
         <h5>알림</h5>
       </StHeader>
       <StNotificationContainer>
-        {data.map((info) => (
-          <Notification {...info} />
+        {noticeList.map((info, idx) => (
+          <Notification
+            key={idx}
+            status={info.alramStatus}
+            messageLink={info.viewMyNoticeImageResDTO.messageLink}
+            location={info.address}
+            title={info.viewMyNoticeImageResDTO.houseName}
+            img={`https://jipyo.link/${info.viewMyNoticeImageResDTO.filePath.split('/').pop()}`}
+            period={`${info.viewMyNoticeImageResDTO.startDate} ~ ${info.viewMyNoticeImageResDTO.endDate}`}
+          />
+          // <Notification {...info} />
         ))}
       </StNotificationContainer>
     </StMainContainer>
