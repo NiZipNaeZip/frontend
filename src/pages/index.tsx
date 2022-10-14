@@ -21,7 +21,7 @@ function Home() {
     <>
       <Modal />
       <StHome>
-        <SEO title="메인 페이지" />
+        <SEO title="니집내집" />
         <div id="header">
           <ImageDiv src={icBrand} className="test" alt="" />
           <ImageDiv src={icNotice} className="test" alt="" onClick={() => router.push('/notification')} />

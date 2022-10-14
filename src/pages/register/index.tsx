@@ -11,6 +11,7 @@ import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
 import { icBack, icCloseBg } from 'public/assets/icons';
 import PeopleInformation from '@src/components/Register/PeopleInformation';
 import LinkShare from '@src/components/Register/LinkShare';
+import SEO from '@src/components/common/SEO';
 
 export default function Register() {
   const router = useRouter();
@@ -79,6 +80,7 @@ export default function Register() {
 
   return (
     <>
+      <SEO title="집 등록" />
       <Modal />
       <StRegister>
         <StHeader>

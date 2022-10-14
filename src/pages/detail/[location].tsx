@@ -1,4 +1,5 @@
 import ImageDiv from '@src/components/common/ImageDiv';
+import SEO from '@src/components/common/SEO';
 import useModal from '@src/hooks/useModal';
 import { api } from '@src/services/api';
 import { client } from '@src/services/libs/api';
@@ -32,6 +33,7 @@ export default function Detail() {
 
   return (
     <>
+      <SEO title="상세 페이지" />
       <Modal />
       <StMainContainer>
         <div onClick={openModal}>

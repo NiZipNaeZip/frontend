@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { icLike, icMark } from 'public/assets/icons';
 import BottomSheet from '@src/components/Register/BottomSheet';
 import useToast from '@src/hooks/useToast';
+import SEO from '@src/components/common/SEO';
 
 const imgList = [imgUpload, imgUpload, imgUpload, imgUpload];
 export default function InfoDetail() {
@@ -44,67 +45,70 @@ export default function InfoDetail() {
   const warning = `원룸이라 방음이 잘 안돼요. 10시 이후에는 조용히 해주셔야 합니다🥲`;
 
   return (
-    <StMainContainer>
-      <StSliderWrapper>
-        <Slider {...settings}>
-          {imgList.map((image, idx) => (
-            <StImageWrapper key={idx}>
-              <ImageDiv src={image} className="test" alt="" />
-            </StImageWrapper>
-          ))}
-        </Slider>
-        <span>
-          {imgIdx + 1}/{imgList.length}
-        </span>
-      </StSliderWrapper>
-      <StDetailWrapper>
-        <StDetailTitle>{title}</StDetailTitle>
-        <StPlace>
-          <ImageDiv src={icMark} alt="" />
-          {place}
-        </StPlace>
-        <StTagList>
-          {tagList.map((tag) => (
-            <span>{tag}</span>
-          ))}
-        </StTagList>
-        <StSubtitle>집을 소개합니다</StSubtitle>
-        <StContent>{content}</StContent>
-        <StSubtitle>주의해주세요!</StSubtitle>
-        <StWarning>{warning}</StWarning>
-        <StSubtitle>근처에서 이렇게 놀아요</StSubtitle>
-        <StAttraction>
-          <div>
-            <ImageDiv src={imgOcean} className="attraction" alt="" />
-            <span>해변</span>
-          </div>
-          <div>
-            <ImageDiv src={imgRoad} className="attraction" alt="" />
-            <span>올레길</span>
-          </div>
-          <div>
-            <ImageDiv src={imgFarm} className="attraction" alt="" />
-            <span>감귤농장</span>
-          </div>
-        </StAttraction>
-        <StSubtitle>빌려 드립니다</StSubtitle>
-        <StAttraction>
-          <div>
-            <ImageDiv src={imgExercise} className="attraction" alt="" />
-            <span>운동기구</span>
-          </div>
-          <div>
-            <ImageDiv src={imgSwimming} className="attraction" alt="" />
-            <span>물놀이 용품</span>
-          </div>
-        </StAttraction>
-        <button onClick={() => setIsModalOpen(true)}>
-          <ImageDiv className="like" src={icLike} alt="" />
-          관심 있어요
-        </button>
-      </StDetailWrapper>
-      {isModalOpen && <BottomSheet closeModal={() => setIsModalOpen(false)} />}
-    </StMainContainer>
+    <>
+      <SEO title="상세 페이지" />
+      <StMainContainer>
+        <StSliderWrapper>
+          <Slider {...settings}>
+            {imgList.map((image, idx) => (
+              <StImageWrapper key={idx}>
+                <ImageDiv src={image} className="test" alt="" />
+              </StImageWrapper>
+            ))}
+          </Slider>
+          <span>
+            {imgIdx + 1}/{imgList.length}
+          </span>
+        </StSliderWrapper>
+        <StDetailWrapper>
+          <StDetailTitle>{title}</StDetailTitle>
+          <StPlace>
+            <ImageDiv src={icMark} alt="" />
+            {place}
+          </StPlace>
+          <StTagList>
+            {tagList.map((tag) => (
+              <span>{tag}</span>
+            ))}
+          </StTagList>
+          <StSubtitle>집을 소개합니다</StSubtitle>
+          <StContent>{content}</StContent>
+          <StSubtitle>주의해주세요!</StSubtitle>
+          <StWarning>{warning}</StWarning>
+          <StSubtitle>근처에서 이렇게 놀아요</StSubtitle>
+          <StAttraction>
+            <div>
+              <ImageDiv src={imgOcean} className="attraction" alt="" />
+              <span>해변</span>
+            </div>
+            <div>
+              <ImageDiv src={imgRoad} className="attraction" alt="" />
+              <span>올레길</span>
+            </div>
+            <div>
+              <ImageDiv src={imgFarm} className="attraction" alt="" />
+              <span>감귤농장</span>
+            </div>
+          </StAttraction>
+          <StSubtitle>빌려 드립니다</StSubtitle>
+          <StAttraction>
+            <div>
+              <ImageDiv src={imgExercise} className="attraction" alt="" />
+              <span>운동기구</span>
+            </div>
+            <div>
+              <ImageDiv src={imgSwimming} className="attraction" alt="" />
+              <span>물놀이 용품</span>
+            </div>
+          </StAttraction>
+          <button onClick={() => setIsModalOpen(true)}>
+            <ImageDiv className="like" src={icLike} alt="" />
+            관심 있어요
+          </button>
+        </StDetailWrapper>
+        {isModalOpen && <BottomSheet closeModal={() => setIsModalOpen(false)} />}
+      </StMainContainer>
+    </>
   );
 }
 
