@@ -56,7 +56,7 @@ export default function NotificationPage() {
   };
   useEffect(() => {
     (async () => {
-      const { data } = await client.get(`/user/2/notice`);
+      const { data } = await client.get(`/user/1/notice`);
       console.log(data);
       setNoticeList(data);
     })();
@@ -72,7 +72,8 @@ export default function NotificationPage() {
         {noticeList.map((info, idx) => (
           <Notification
             key={idx}
-            status={info.alramStatus}
+            alarmId={info.alarm_id}
+            status={info.alarmStatus}
             messageLink={info.viewMyNoticeImageResDTO.messageLink}
             location={info.address}
             title={info.viewMyNoticeImageResDTO.houseName}

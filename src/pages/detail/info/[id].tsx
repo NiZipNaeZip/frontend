@@ -4,16 +4,26 @@ import { imgExercise, imgFarm, imgOcean, imgRoad, imgSwimming, imgUpload } from 
 import ImageDiv from '@src/components/common/ImageDiv';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { icBack, icLike, icMark } from 'public/assets/icons';
 import BottomSheet from '@src/components/Register/BottomSheet';
 import SEO from '@src/components/common/SEO';
 import { useRouter } from 'next/router';
+import { client } from '@src/services/libs/api';
 
 const imgList = [imgUpload, imgUpload, imgUpload, imgUpload];
 export default function InfoDetail() {
   const [imgIdx, setImgIdx] = useState<number>(0);
   const router = useRouter();
+  const [detailInfo, setDetailInfo] = useState<any>();
+  useEffect(() => {
+    (async () => {
+      console.log(router.query);
+      const { data } = await client.get(`/house/detail/${router.query.id}`);
+      setDetailInfo(data);
+      console.log(data);
+    })();
+  }, []);
   const settings = {
     dots: false,
     infinite: true,
@@ -54,14 +64,14 @@ export default function InfoDetail() {
             <ImageDiv onClick={() => router.back()} src={icBack} className="test" alt="" />
           </div>
           <Slider {...settings}>
-            {imgList.map((image, idx) => (
+            {detailInfo?.imagePaths.map((image: any, idx: any) => (
               <StImageWrapper key={idx}>
-                <ImageDiv src={image} className="test" alt="" />
+                <img src={`https://jipyo.link/${image.split('/').pop()}`} />
               </StImageWrapper>
             ))}
           </Slider>
           <span>
-            {imgIdx + 1}/{imgList.length}
+            {imgIdx + 1}/{detailInfo?.imagePaths.length}
           </span>
         </StSliderWrapper>
         <StDetailWrapper>
@@ -121,8 +131,8 @@ const StMainContainer = styled.div`
 `;
 const StSliderWrapper = styled.div`
   & > span {
-    float: right;
-    margin-right: 20px;
+    position: absolute;
+    right: 20px;
     display: block;
     margin-top: -50px;
     width: 55px;
@@ -256,3 +266,6 @@ const StWarning = styled.div`
   color: #ef4040;
   margin-bottom: 80px;
 `;
+function useEffetc(arg0: () => void, arg1: never[]) {
+  throw new Error('Function not implemented.');
+}
