@@ -18,10 +18,8 @@ export default function InfoDetail() {
   const [detailInfo, setDetailInfo] = useState<any>();
   useEffect(() => {
     (async () => {
-      console.log(router.query);
       const { data } = await client.get(`/house/detail/${router.query.id}`);
       setDetailInfo(data);
-      console.log(data);
     })();
   }, []);
   const settings = {
@@ -75,20 +73,20 @@ export default function InfoDetail() {
           </span>
         </StSliderWrapper>
         <StDetailWrapper>
-          <StDetailTitle>{title}</StDetailTitle>
+          <StDetailTitle>{detailInfo?.houseName}</StDetailTitle>
           <StPlace>
             <ImageDiv src={icMark} alt="" />
-            {place}
+            {detailInfo?.address}
           </StPlace>
           <StTagList>
-            {tagList.map((tag) => (
-              <span>{tag}</span>
-            ))}
+            <span>{detailInfo?.houseInfoDTO.buildingType}</span>
+            <span>{detailInfo?.houseInfoDTO.availablePeople}인</span>
+            <span>{detailInfo?.houseInfoDTO.numberOfHouse}</span>
           </StTagList>
           <StSubtitle>집을 소개합니다</StSubtitle>
-          <StContent>{content}</StContent>
+          <StContent>{detailInfo?.houseIntroduction}</StContent>
           <StSubtitle>주의해주세요!</StSubtitle>
-          <StWarning>{warning}</StWarning>
+          <StWarning>{detailInfo?.precautionList.join(' ')}</StWarning>
           <StSubtitle>근처에서 이렇게 놀아요</StSubtitle>
           <StAttraction>
             <div>

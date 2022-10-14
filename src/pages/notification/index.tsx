@@ -57,7 +57,6 @@ export default function NotificationPage() {
   useEffect(() => {
     (async () => {
       const { data } = await client.get(`/user/1/notice`);
-      console.log(data);
       setNoticeList(data);
     })();
   }, []);
