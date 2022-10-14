@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Slider from 'react-slick';
-import { imgUpload } from 'public/assets/images';
+import { imgExercise, imgFarm, imgOcean, imgRoad, imgSwimming, imgUpload } from 'public/assets/images';
 import ImageDiv from '@src/components/common/ImageDiv';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -73,7 +73,31 @@ export default function InfoDetail() {
         <StSubtitle>주의해주세요!</StSubtitle>
         <StWarning>{warning}</StWarning>
         <StSubtitle>근처에서 이렇게 놀아요</StSubtitle>
+        <StAttraction>
+          <div>
+            <ImageDiv src={imgOcean} className="attraction" alt="" />
+            <span>해변</span>
+          </div>
+          <div>
+            <ImageDiv src={imgRoad} className="attraction" alt="" />
+            <span>올레길</span>
+          </div>
+          <div>
+            <ImageDiv src={imgFarm} className="attraction" alt="" />
+            <span>감귤농장</span>
+          </div>
+        </StAttraction>
         <StSubtitle>빌려 드립니다</StSubtitle>
+        <StAttraction>
+          <div>
+            <ImageDiv src={imgExercise} className="attraction" alt="" />
+            <span>운동기구</span>
+          </div>
+          <div>
+            <ImageDiv src={imgSwimming} className="attraction" alt="" />
+            <span>물놀이 용품</span>
+          </div>
+        </StAttraction>
         <button onClick={() => setIsModalOpen(true)}>
           <ImageDiv className="like" src={icLike} alt="" />
           관심 있어요
@@ -179,6 +203,27 @@ const StSubtitle = styled.div`
   line-height: 160.3%;
   color: #101223;
   margin-bottom: 20px;
+`;
+
+const StAttraction = styled.div`
+  display: flex;
+  gap: 16px;
+  justify-content: flex-start;
+  text-align: center;
+  margin-bottom: 60px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160.3%;
+
+  span {
+    display: block;
+    margin-top: 9px;
+  }
+
+  .attraction {
+    width: 96px;
+    height: 96px;
+  }
 `;
 
 const StContent = styled.div`
