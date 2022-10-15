@@ -1,7 +1,6 @@
 import ImageDiv from '@src/components/common/ImageDiv';
 import SEO from '@src/components/common/SEO';
 import useModal from '@src/hooks/useModal';
-import { api } from '@src/services/api';
 import { client } from '@src/services/libs/api';
 import { useRouter } from 'next/router';
 import { icDetailBack } from 'public/assets/icons';
