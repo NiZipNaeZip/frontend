@@ -42,8 +42,7 @@ export default function Notification(props: IProps) {
             onClick={() => {
               client.get(`/notice/accept/${alarmId}`);
               router.push(messageLink);
-            }}
-          >
+            }}>
             수락
           </button>
         </StButtonContainer>
@@ -59,13 +58,14 @@ const StMainContainer = styled.div`
   width: 100%;
   height: 224px;
   border-radius: 0px;
-  padding: 25px 20px 25px 20px;
+  padding: 25px 0;
   & > div:first-child {
     display: flex;
     img {
       width: 103px;
       height: 103px;
       border-radius: 8px;
+      object-fit: cover;
     }
   }
 `;
@@ -115,9 +115,10 @@ const StReConversationButton = styled.button`
 const StButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 25px;
   margin-top: 24px;
   button {
-    width: calc((100% - 40px - 20px) / 2);
+    width: 100%;
     height: 46px;
     border-radius: 10px;
   }

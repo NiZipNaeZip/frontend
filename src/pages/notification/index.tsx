@@ -6,48 +6,6 @@ import { useRouter } from 'next/router';
 import Notification from '@src/components/notification/Notification';
 import { client } from '@src/services/libs/api';
 
-const data = [
-  {
-    status: 'UNREAD',
-    img: '',
-    period: '10월1일 ~ 10월3일',
-    title: 'ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ',
-    location: '서울특별시 마포구 공덕동',
-    messageLink: '',
-  },
-  {
-    status: 'ACCEPT',
-    img: '',
-    period: '10월1일 ~ 10월3일',
-    title: 'ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ',
-    location: '서울특별시 마포구 공덕동',
-    messageLink: '',
-  },
-  {
-    status: 'UNREAD',
-    img: '',
-    period: '10월1일 ~ 10월3일',
-    title: 'ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ',
-    location: '서울특별시 마포구 공덕동',
-    messageLink: '',
-  },
-  {
-    status: 'UNREAD',
-    img: '',
-    period: '10월1일 ~ 10월3일',
-    title: 'ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ',
-    location: '서울특별시 마포구 공덕동',
-    messageLink: '',
-  },
-  {
-    status: 'UNREAD',
-    img: '',
-    period: '10월1일 ~ 10월3일',
-    title: 'ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ',
-    location: '서울특별시 마포구 공덕동',
-    messageLink: '',
-  },
-];
 export default function NotificationPage() {
   const router = useRouter();
   const [noticeList, setNoticeList] = useState<any[]>([]);
@@ -64,7 +22,7 @@ export default function NotificationPage() {
   return (
     <StMainContainer>
       <StHeader>
-        <ImageDiv className="test" src={icBack} alt="" onClick={handleClickPrevious} />
+        <ImageDiv className="back" src={icBack} alt="뒤로 가기" onClick={handleClickPrevious} />
         <h5>알림</h5>
       </StHeader>
       <StNotificationContainer>
@@ -77,24 +35,31 @@ export default function NotificationPage() {
             location={info.address}
             title={info.viewMyNoticeImageResDTO.houseName}
             img={`https://jipyo.link/${info.viewMyNoticeImageResDTO.filePath.split('/').pop()}`}
-            period={`${info.viewMyNoticeImageResDTO.startDate} ~ ${info.viewMyNoticeImageResDTO.endDate}`}
+            period={`${info.viewMyNoticeImageResDTO.startDate} - ${info.viewMyNoticeImageResDTO.endDate}`}
           />
-          // <Notification {...info} />
         ))}
       </StNotificationContainer>
     </StMainContainer>
   );
 }
 
-const StMainContainer = styled.div``;
-const StHeader = styled.div`
+const StMainContainer = styled.div`
   padding: 0 20px;
-  width: 100%;
+`;
+
+const StHeader = styled.div`
   display: flex;
-  height: 60px;
   align-items: center;
+  height: 60px;
+
   h5 {
     margin: 0 auto;
+  }
+
+  .back {
+    cursor: pointer;
+    width: 27px;
+    height: 27px;
   }
 `;
 

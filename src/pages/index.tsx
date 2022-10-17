@@ -33,22 +33,18 @@ function Home() {
       <Modal />
       <StHome>
         <SEO title="니집내집" />
-        <div id="header">
-          <ImageDiv src={icBrand} className="test" alt="" />
-          <ImageDiv src={icNotice} className="test" alt="" onClick={() => router.push('/notification')} />
-        </div>
+        <StHeader>
+          <ImageDiv src={icBrand} className="brand" alt="니집내집" />
+          <ImageDiv src={icNotice} className="notice" alt="알림" onClick={() => router.push('/notification')} />
+        </StHeader>
         <StFooter>
           <Link href="/register">
-            <a>
-              <StRegisterHome>
-                <ImageDiv src={icHome} className="test" alt="" />
-                <span>집을 등록할래요.</span>
-              </StRegisterHome>
-            </a>
+            <StRegisterHome>
+              <ImageDiv src={icHome} className="home" alt="" />
+              <span>집을 등록할래요.</span>
+            </StRegisterHome>
           </Link>
-          <button onClick={openModal}>
-            <span>어디서 살아볼까요?</span>
-          </button>
+          <button onClick={openModal}>어디서 살아볼까요?</button>
         </StFooter>
       </StHome>
     </>
@@ -56,6 +52,28 @@ function Home() {
 }
 
 export default Home;
+
+const StHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  height: 60px;
+  margin-top: 40px;
+  padding: 20px;
+
+  .brand {
+    width: 95px;
+    height: 27px;
+  }
+
+  .notice {
+    width: 27px;
+    height: 27px;
+    cursor: pointer;
+  }
+`;
 
 const StFooter = styled.div`
   position: fixed;
@@ -66,45 +84,45 @@ const StFooter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   button {
     width: 100%;
     height: 61px;
+    margin-top: 25px;
     border-radius: 10px;
     background-color: #6765ff;
-    margin-top: 25px;
-    span {
-      //styleName: medium/CTA;
-      font-family: Noto Sans KR;
-      font-size: 17px;
-      font-weight: 500;
-      line-height: 27px;
-      letter-spacing: 0em;
-      color: white;
-      text-align: center;
-    }
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 27px;
+    color: white;
+    text-align: center;
   }
 `;
 
-const StRegisterHome = styled.div`
-  height: 36px;
+const StRegisterHome = styled.a`
+  display: flex;
+  align-items: center;
   width: 160px;
+  height: 36px;
   border-radius: 110px;
   padding: 7px 16px 7px 16px;
-  display: flex;
   background-color: black;
-  div {
+  cursor: pointer;
+
+  .home {
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
   }
+
   span {
     color: white;
-    font-family: Noto Sans KR;
     font-size: 14px;
     font-weight: 400;
     line-height: 22px;
-    letter-spacing: 0em;
-    text-align: left;
   }
 `;
+
 const StHome = styled.div`
   width: 100%;
   height: 100vh;
@@ -113,27 +131,4 @@ const StHome = styled.div`
   background-image: url('/assets/images/img_main.svg');
   font-size: 2rem;
   line-height: 2rem;
-  #main-background {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    img {
-      width: 100%;
-      min-width: 100vw;
-    }
-  }
-  & > a {
-    display: block;
-  }
-  #header {
-    justify-content: space-between;
-    display: flex;
-    height: 60px;
-    width: 100%;
-    max-width: 420px;
-    border-radius: 0px;
-    align-items: center;
-    margin-top: 40px;
-    padding: 20px;
-  }
 `;

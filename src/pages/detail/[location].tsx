@@ -49,7 +49,7 @@ export default function Detail() {
         </div>
         {houseList.map((house: any) => (
           <StDetailContainer key={house.houseId} onClick={() => router.push(`/detail/info/${house.houseId}`)}>
-            <img src={`https://jipyo.link/${house.filePath.split('/').pop()}`} width="100%" height="222px" />
+            <img src={`https://jipyo.link/${house.filePath.split('/').pop()}`} />
             <StContentWrapper>
               <span>{house.houseName}</span>
               <div>
@@ -105,9 +105,10 @@ const StMainContainer = styled.div`
 
 const StDetailContainer = styled.div`
   width: 100%;
-  .thumbnail {
+  img {
     width: 100%;
     height: 222px;
+    object-fit: cover;
   }
 `;
 const StTagContainer = styled.div`
