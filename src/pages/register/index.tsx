@@ -50,7 +50,7 @@ export default function Register() {
 
   const isNotEssential = (pageNum: number) => {
     // 필수 항목 아닌 경우
-    const notEssentialList = [3, 4];
+    const notEssentialList = [3, 5];
     return notEssentialList.includes(pageNum);
   };
   const pages = [
