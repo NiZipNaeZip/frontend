@@ -107,7 +107,7 @@ const StRegisterHome = styled.div`
 `;
 const StHome = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   min-width: 380px;
   min-height: 844px;
   background-image: url('/assets/images/img_main.svg');

@@ -129,7 +129,8 @@ const StMainContainer = styled.div`
 `;
 const StSliderWrapper = styled.div`
   & > span {
-    position: absolute;
+    position: relative;
+    float: right;
     right: 20px;
     display: block;
     margin-top: -50px;
