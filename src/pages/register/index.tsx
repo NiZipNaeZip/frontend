@@ -84,14 +84,14 @@ export default function Register() {
     <>
       <SEO title="집 등록" />
       <Modal />
-      <StRegister>
+      <div>
         <StHeader>
-          <ImageDiv className="test" src={icBack} alt="" onClick={handleClickPrevious} />
+          <ImageDiv className="back" src={icBack} alt="<" onClick={handleClickPrevious} />
           <div>
-            <span id="page-num">
-              {pageIdx + 1}/{pages.length}
-            </span>
-            <ImageDiv className="test" src={icCloseBg} alt="" onClick={openModal} />
+            <StPageCounter>
+              <span>{pageIdx + 1}</span> / {pages.length}
+            </StPageCounter>
+            <ImageDiv className="exit" src={icCloseBg} alt="x" onClick={openModal} />
           </div>
         </StHeader>
         <StMainContent>{pages[pageIdx]}</StMainContent>
@@ -103,7 +103,7 @@ export default function Register() {
             <Button name="등록하기" handleClick={handleClickSubmit} nextValid={nextValid} />
           )}
         </StFooter>
-      </StRegister>
+      </div>
     </>
   );
 }
@@ -128,37 +128,42 @@ const StFooter = styled.div`
     color: #6765ff;
   }
 `;
+
 const StMainContent = styled.div`
   overflow: auto;
   margin-bottom: 108px;
 `;
-const StRegister = styled.div``;
+
 const StHeader = styled.div`
   display: flex;
-  padding: 0 20px;
-  height: 60px;
   align-items: center;
   justify-content: space-between;
+  padding: 0 20px;
+  height: 60px;
+
   & > div {
     display: flex;
   }
-  span {
-    display: block;
-    background-color: #eeeeee;
-    text-align: center;
-    height: 27px;
-    line-height: 27px;
-  }
-  #page-num {
-    width: 55px;
-    border-radius: 29px;
-    margin-right: 11px;
-  }
-  #cancle {
-    font-size: 11px;
-    background-color: #000000;
-    color: white;
+
+  .back,
+  .exit {
     width: 27px;
-    border-radius: 50%;
+    height: 27px;
+    cursor: pointer;
+  }
+`;
+
+const StPageCounter = styled.div`
+  width: 55px;
+  height: 27px;
+  line-height: 27px;
+  border-radius: 29px;
+  margin-right: 11px;
+  background-color: #eeeeee;
+  text-align: center;
+  font-weight: 500;
+
+  & > span {
+    color: #6765ff;
   }
 `;
