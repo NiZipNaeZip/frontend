@@ -63,8 +63,10 @@ const StTextBox = styled.div<{ isChecked: boolean }>`
   }
 
   & > div:last-child {
+    margin-top: 5px;
     font-size: 12px;
     line-height: 160.3%;
     color: #a3a3a3;
+    word-break: keep-all;
   }
 `;

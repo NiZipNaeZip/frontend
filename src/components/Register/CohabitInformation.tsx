@@ -39,6 +39,11 @@ const StCohabitInformation = styled.div`
     align-items: center;
     gap: 15px;
     width: 100%;
-    height: 78px;
+    min-width: fit-content;
+    padding: 10px 0;
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
   }
 `;
