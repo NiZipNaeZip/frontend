@@ -101,7 +101,7 @@ const StModalContent = styled.div<{ isConfirm: boolean }>`
     }
     #submit {
       background-color: ${({ isConfirm }) => (isConfirm ? '#ef4040' : '#FFB84D')};
-      color: ${({ isConfirm }) => (isConfirm ? '#white' : 'black')};
+      color: ${({ isConfirm }) => (isConfirm ? 'white' : 'black')};
     }
     #cancle {
       background-color: ${({ isConfirm }) => (isConfirm ? '#ececec' : '#13CC89')};
