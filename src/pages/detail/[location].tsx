@@ -37,8 +37,8 @@ export default function Detail() {
         <div onClick={openModal}>
           <ImageDiv
             src={icDetailBack}
-            className=""
-            alt=""
+            className="back"
+            alt="<"
             onClick={(e) => {
               e.stopPropagation;
               router.push('/');
@@ -73,32 +73,35 @@ const StMainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .back {
+    width: 27px;
+    height: 27px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+
   & > div:first-child {
     display: flex;
     align-items: center;
     width: calc(100% - 40px);
-    margin-top: 20px;
     height: 59px;
+    margin-top: 20px;
     margin-bottom: 26px;
     border-radius: 60px;
     box-shadow: 0px 7px 18px 0px #0000000a;
-    div {
-      margin-left: 20px;
-    }
+
     h5 {
-      line-height: 59px;
+      line-height: 29px;
       margin-left: 18px;
     }
+
     span {
-      display: block;
       margin-left: 8px;
       color: #a3a3a3;
-      font-family: Noto Sans KR;
       font-size: 14px;
       font-weight: 400;
       line-height: 22px;
-      letter-spacing: 0em;
-      text-align: left;
     }
   }
 `;
