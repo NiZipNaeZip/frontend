@@ -3,8 +3,7 @@ import SEO from '@src/components/common/SEO';
 import useModal from '@src/hooks/useModal';
 import { client } from '@src/services/libs/api';
 import { useRouter } from 'next/router';
-import { icDetailBack } from 'public/assets/icons';
-import { icLocation } from 'public/assets/icons';
+import { icDetailBack, icLocationColored } from 'public/assets/icons';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -53,8 +52,8 @@ export default function Detail() {
             <StContentWrapper>
               <span>{house.houseName}</span>
               <div>
-                <ImageDiv src={icLocation} className="test" alt="" />
-                <span>{house.address}</span>
+                <ImageDiv src={icLocationColored} className="location" alt="" />
+                <StAddress>{house.address}</StAddress>
               </div>
               <StTagContainer>
                 <span>{house.houseInfoDTO.buildingType}</span>
@@ -95,68 +94,69 @@ const StMainContainer = styled.div`
       line-height: 29px;
       margin-left: 18px;
     }
-
-    span {
-      margin-left: 8px;
-      color: #a3a3a3;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 22px;
-    }
   }
+`;
+
+const StAddress = styled.span`
+  color: #a3a3a3;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
 `;
 
 const StDetailContainer = styled.div`
   width: 100%;
+
   img {
     width: 100%;
     height: 222px;
     object-fit: cover;
   }
 `;
-const StTagContainer = styled.div`
-  span {
-    display: inline-block;
-    height: 27px;
-    border-radius: 130px;
-    padding: 4px 12px 4px 12px;
-    background-color: #eef3f9;
-    margin-right: 8px;
-  }
-`;
+
 const StContentWrapper = styled.div`
   width: 100%;
-  height: 143px;
-  padding: 18px 20px 28px 18px;
-  & > div {
+  padding: 18px 20px 28px 20px;
+
+  & > div:first-of-type {
     display: flex;
+    align-items: center;
     margin-top: 9px;
     margin-bottom: 19px;
-    div {
+
+    .location {
+      width: 19px;
+      height: 19px;
       margin-right: 6px;
     }
+
     span {
-      display: block;
-      font-family: Noto Sans KR;
       font-size: 12px;
       font-weight: 400;
-      line-height: 19px;
-      letter-spacing: 0em;
-      text-align: left;
+      line-height: 19.24px;
       color: #a3a3a3;
     }
   }
+
   & > span {
     display: block;
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    font-family: Noto Sans KR;
     font-size: 14px;
     font-weight: 500;
     line-height: 22px;
-    letter-spacing: 0em;
-    text-align: left;
+  }
+`;
+
+const StTagContainer = styled.div`
+  & > span {
+    height: 27px;
+    border-radius: 130px;
+    padding: 4px 12px 4px 12px;
+    color: #6765ff;
+    background-color: #eef3f9;
+    margin-right: 8px;
   }
 `;
