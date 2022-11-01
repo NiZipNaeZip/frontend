@@ -24,13 +24,13 @@ export default function Notification(props: IProps) {
       <div>
         <img src={img} />
         <StContentContainer>
-          <span id="title">{title}</span>
+          <StTitle>{title}</StTitle>
           <div>
-            <ImageDiv src={icLocationColored} className="test" alt="" />
+            <ImageDiv src={icLocationColored} className="location" alt="" />
             <span>{location}</span>
           </div>
           <div>
-            <ImageDiv src={icCalendar} className="test" alt="" />
+            <ImageDiv src={icCalendar} className="calendar" alt="" />
             <span>{period}</span>
           </div>
         </StContentContainer>
@@ -71,36 +71,31 @@ const StMainContainer = styled.div`
 `;
 const StContentContainer = styled.div`
   margin-left: 22px;
-  #title {
-    display: block;
-    width: 100%;
-    height: 44px;
-    margin-bottom: 16px;
-    font-family: Noto Sans KR;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 22px;
-    letter-spacing: 0em;
-    text-align: left;
-  }
+
   & > div {
     display: flex;
+    align-items: center;
+    gap: 6px;
     margin-bottom: 6px;
-    div {
-      margin-right: 6px;
-    }
-    span {
-      width: 100%;
+    font-size: 12px;
+    font-weight: 400;
+    color: #a3a3a3;
+
+    .location,
+    .calendar {
+      width: 19px;
       height: 19px;
-      font-family: Noto Sans KR;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 19px;
-      letter-spacing: 0em;
-      text-align: left;
-      color: #a3a3a3;
     }
   }
+`;
+
+const StTitle = styled.span`
+  display: block;
+  height: 44px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
 `;
 
 const StReConversationButton = styled.button`
