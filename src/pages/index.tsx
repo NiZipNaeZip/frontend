@@ -126,9 +126,5 @@ const StRegisterHome = styled.a`
 const StHome = styled.div`
   width: 100%;
   height: 100vh;
-  min-width: 380px;
-  min-height: 844px;
-  background-image: url('/assets/images/img_main.svg');
-  font-size: 2rem;
-  line-height: 2rem;
+  background: #282828 no-repeat center/100% url('/assets/images/img_main.png');
 `;
