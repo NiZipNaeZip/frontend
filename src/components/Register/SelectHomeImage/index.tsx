@@ -36,8 +36,8 @@ export default function SelectHomeImage(props: IProps) {
 
 const StMainDiv = styled.div`
   width: 100%;
-  /* overflow: hidden; */
 `;
+
 const StHeaderDiv = styled.div`
   margin-top: 40px;
   padding: 0 20px;

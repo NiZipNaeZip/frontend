@@ -27,7 +27,11 @@ export default function HomeInformation(props: IProps) {
           <h5>이런 분께 추천합니다.</h5>
         </StRecommendHeader>
         <StRecommendInfo>
-          <textarea value={recommendInfo} onChange={(e) => setRecommendInfo(e.target.value)} />
+          <textarea
+            value={recommendInfo}
+            placeholder="당신의 매력적인 집을 소개해 주세요!"
+            onChange={(e) => setRecommendInfo(e.target.value)}
+          />
           <span>최대 500자</span>
         </StRecommendInfo>
       </StRecommend>
@@ -91,7 +95,7 @@ const StRecommendInfo = styled.div`
     height: 100%;
     background-color: #f9f9f9;
   }
-  
+
   span {
     height: 19.24px;
     line-height: 19.24px;

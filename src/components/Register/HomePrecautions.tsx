@@ -6,30 +6,39 @@ import ImageDiv from '../common/ImageDiv';
 interface IProps {
   setNextValid: Dispatch<SetStateAction<boolean>>;
 }
-export default function HomePrecuations(props: IProps) {
+export default function HomePrecautions(props: IProps) {
   const { setNextValid } = props;
-  const [precuations, setPrecuations] = useState<string>('');
+  const [precautions, setPrecautions] = useState<string>('');
   setNextValid(true);
   return (
-    <StHomePrecuations>
+    <StHomePrecautions>
       <StHeaderDiv>
-        <ImageDiv src={icAlert} className="test" alt="" />
-        <h5>이런 활동은 주의해주세요</h5>
+        <ImageDiv src={icAlert} className="alert" alt="" />
+        <h5>이런 활동은 주의해 주세요!</h5>
       </StHeaderDiv>
       <StRecommendInfo>
-        <textarea value={precuations} onChange={(e) => setPrecuations(e.target.value)} />
+        <textarea
+          value={precautions}
+          placeholder="집 사용 시 주의 사항을 적어주세요."
+          onChange={(e) => setPrecautions(e.target.value)}
+        />
         <span>최대 500자</span>
       </StRecommendInfo>
-    </StHomePrecuations>
+    </StHomePrecautions>
   );
 }
 
 const StHeaderDiv = styled.div`
   display: flex;
   margin-top: 40px;
+
+  .alert {
+    width: 34px;
+    height: 34px;
+  }
 `;
 
-const StHomePrecuations = styled.div`
+const StHomePrecautions = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
