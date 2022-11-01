@@ -38,21 +38,33 @@ export default HouseType;
 
 const StHouseType = styled.div`
   display: flex;
-  gap: 12px;
   margin: 30px 20px 40px 20px;
-  background: #f3f7fb;
-  padding: 9px 12px 10px 12px;
-  border-radius: 10px;
 
   & > div {
     width: calc(100% / 3);
-    height: 43px;
+    height: 62px;
+    padding: 9px 10px 10px 12px;
+    background: #f3f7fb;
 
     div {
       font-size: 12px;
       line-height: 160.3%;
       color: #9190cf;
     }
+  }
+
+  & > div:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  & > div:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  & > div:not(:last-child) {
+    border-right: 1px solid #9190cf;
   }
 
   select {
