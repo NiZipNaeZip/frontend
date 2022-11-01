@@ -49,5 +49,6 @@ const StImageContainer = styled.div`
     width: calc(calc(100% - 28px) / 3);
     height: 108px;
     border-radius: 8px;
+    cursor: pointer;
   }
 `;

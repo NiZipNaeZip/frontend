@@ -10,22 +10,21 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
-  h2{
-    font-family: Apple SD Gothic Neo;
+  h2 {
     font-size: 21px;
     font-weight: 700;
     line-height: 28px;
     letter-spacing: -0.004em;
     text-align: left;
   }
-  h5{
-    font-family: Noto Sans KR;
+
+  h5 {
     font-size: 21px;
     font-weight: 700;
     line-height: 34px;
-    letter-spacing: 0em;
     text-align: left;
   }
+
   #__next {
     display: flex;
     flex-direction: column;
