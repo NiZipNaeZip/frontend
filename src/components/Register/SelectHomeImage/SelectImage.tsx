@@ -26,25 +26,28 @@ export default function SelectImage(props: IProps) {
 const StSelectImage = styled.div`
   margin-top: 40px;
   padding: 0 20px;
+
   img {
     object-fit: cover;
   }
+
   & > img {
-    height: 312px;
     width: 100%;
     max-width: 420px;
+    height: 312px;
     border-radius: 8px;
+    margin-bottom: 16px;
   }
 `;
+
 const StImageContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin-left: -10px;
+  gap: 14px;
+
   img {
-    margin-top: 8px;
-    margin-left: 11px;
+    width: calc(calc(100% - 28px) / 3);
     height: 108px;
-    width: 108px;
     border-radius: 8px;
   }
 `;
