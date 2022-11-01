@@ -45,6 +45,12 @@ const GlobalStyle = createGlobalStyle`
   body, button, input, textarea {
     font-family: 'Noto Sans KR', sans-serif;
   }
+
+  textarea {
+    border: none;
+    outline: none;
+    resize: none;
+  }
   
   button {
     cursor: pointer;

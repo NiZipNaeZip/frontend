@@ -44,29 +44,23 @@ const StHomePrecuations = styled.div`
 const StRecommendInfo = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: 302px;
   margin-top: 30px;
   background-color: #f9f9f9;
   border-radius: 10px;
   padding: 20px;
+
   textarea {
-    width: 100%;
     height: 100%;
-    border: none;
-    resize: none;
-    outline-color: #f9f9f9;
     background-color: #f9f9f9;
   }
+
   span {
-    margin-left: 250px;
-    width: 60px;
     height: 19.24px;
     line-height: 19.24px;
-    font-family: Noto Sans KR;
     font-size: 12px;
     font-weight: 400;
-    letter-spacing: 0em;
     color: #a3a3a3;
+    text-align: right;
   }
 `;
