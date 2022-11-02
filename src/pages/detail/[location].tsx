@@ -72,6 +72,7 @@ const StMainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 
   .back {
     width: 27px;
@@ -93,6 +94,7 @@ const StMainContainer = styled.div`
     h5 {
       line-height: 29px;
       margin-left: 18px;
+      margin-right: 8px;
     }
   }
 `;
