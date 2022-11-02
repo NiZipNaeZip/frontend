@@ -43,7 +43,13 @@ export default function InfoDetail() {
           <Slider {...settings}>
             {detailInfo?.imagePaths.map((image: any, idx: any) => (
               <StImageWrapper key={idx}>
-                <img src={`https://jipyo.link/${image.split('/').pop()}`} />
+                <ImageDiv
+                  className="thumbnail"
+                  src={`https://jipyo.link/${image.split('/').pop()}`}
+                  blurDataURL={`https://jipyo.link/${image.split('/').pop()}`}
+                  layout="fill"
+                  placeholder="blur"
+                />
               </StImageWrapper>
             ))}
           </Slider>
@@ -134,11 +140,16 @@ const StImageWrapper = styled.div`
   height: 314px;
   text-align: center;
   align-items: center;
+
   img {
+    object-fit: cover;
+  }
+
+  .thumbnail {
+    position: relative;
     width: 100%;
     max-height: 314px;
     height: 314px;
-    object-fit: cover;
   }
 `;
 
