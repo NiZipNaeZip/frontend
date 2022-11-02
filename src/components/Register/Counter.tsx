@@ -38,12 +38,12 @@ function Counter(props: IProps) {
 
   return (
     <StCounter>
-      <button onClick={handlePlusClick} disabled={!isPlusAdjustable}>
-        <ImageDiv className="button" src={isPlusAdjustable ? icPlusActive : icPlusGray} alt="-" />
+      <button onClick={handleMinusClick} disabled={!isMinusAdjustable}>
+        <ImageDiv className="button" src={isMinusAdjustable ? icMinusActive : icMinusGray} alt="-" />
       </button>
       <div>{count > 3 ? `3명 이상` : `${count}명`}</div>
-      <button onClick={handleMinusClick} disabled={!isMinusAdjustable}>
-        <ImageDiv className="button" src={isMinusAdjustable ? icMinusActive : icMinusGray} alt="+" />
+      <button onClick={handlePlusClick} disabled={!isPlusAdjustable}>
+        <ImageDiv className="button" src={isPlusAdjustable ? icPlusActive : icPlusGray} alt="+" />
       </button>
     </StCounter>
   );
