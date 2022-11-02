@@ -21,10 +21,11 @@ function LinkShare(props: LinkShareProps) {
   return (
     <StLinkShare>
       <StHeader>
-        <ImageDiv src={icKakao} />
-        소통할 채팅방의 링크를
-        <br />
-        공유해 주세요
+        <p>
+          <ImageDiv src={icKakao} />
+          소통할 채팅방의 링크를
+        </p>
+        <p>공유해 주세요</p>
       </StHeader>
       <input placeholder="링크를 입력해 주세요." value={link} onChange={handleChange} />
     </StLinkShare>
@@ -47,9 +48,12 @@ const StLinkShare = styled.div`
 `;
 
 const StHeader = styled.div`
-  display: flex;
   font-weight: 700;
   font-size: 21px;
   line-height: 160.3%;
   margin-top: 40px;
+
+  & > p {
+    display: flex;
+  }
 `;

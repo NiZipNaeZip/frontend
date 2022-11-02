@@ -18,7 +18,7 @@ export default function SelectHomeImage(props: IProps) {
     <StMainDiv>
       <StHeaderDiv>
         <h5>내 집은</h5>
-        <h5>이렇게 생겼어요 !</h5>
+        <h5>이렇게 생겼어요!</h5>
       </StHeaderDiv>
       {images.length === 0 ? (
         <UploadImage setFiles={setFiles} setImages={setImages} />
@@ -36,8 +36,8 @@ export default function SelectHomeImage(props: IProps) {
 
 const StMainDiv = styled.div`
   width: 100%;
-  /* overflow: hidden; */
 `;
+
 const StHeaderDiv = styled.div`
   margin-top: 40px;
   padding: 0 20px;

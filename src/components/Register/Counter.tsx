@@ -6,6 +6,7 @@ import { icMinusActive, icMinusGray, icPlusActive, icPlusGray } from 'public/ass
 interface IProps {
   setNextValid: Dispatch<SetStateAction<boolean>>;
 }
+
 function Counter(props: IProps) {
   const { setNextValid } = props;
   const [count, setCount] = useState(0);
@@ -37,7 +38,7 @@ function Counter(props: IProps) {
 
   return (
     <StCounter>
-      <button onClick={handlePlusClick}>
+      <button onClick={handlePlusClick} disabled={!isPlusAdjustable}>
         <ImageDiv className="button" src={isPlusAdjustable ? icPlusActive : icPlusGray} alt="-" />
       </button>
       <div>{count > 3 ? `3명 이상` : `${count}명`}</div>
@@ -62,6 +63,10 @@ const StCounter = styled.div`
     font-weight: 500;
     font-size: 18px;
     line-height: 160.3%;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
   }
 
   .button {

@@ -27,7 +27,11 @@ export default function HomeInformation(props: IProps) {
           <h5>이런 분께 추천합니다.</h5>
         </StRecommendHeader>
         <StRecommendInfo>
-          <textarea value={recommendInfo} onChange={(e) => setRecommendInfo(e.target.value)} />
+          <textarea
+            value={recommendInfo}
+            placeholder="당신의 매력적인 집을 소개해 주세요!"
+            onChange={(e) => setRecommendInfo(e.target.value)}
+          />
           <span>최대 500자</span>
         </StRecommendInfo>
       </StRecommend>
@@ -86,23 +90,18 @@ const StRecommendInfo = styled.div`
   background-color: #f9f9f9;
   border-radius: 10px;
   padding: 20px;
+
   textarea {
-    width: 100%;
     height: 100%;
     background-color: #f9f9f9;
-    border: none;
-    resize: none;
-    outline-color: #f9f9f9;
   }
+
   span {
-    margin-left: 250px;
-    width: 60px;
     height: 19.24px;
     line-height: 19.24px;
-    font-family: Noto Sans KR;
     font-size: 12px;
     font-weight: 400;
-    letter-spacing: 0em;
     color: #a3a3a3;
+    text-align: right;
   }
 `;

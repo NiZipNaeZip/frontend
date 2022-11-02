@@ -1,4 +1,3 @@
-import { imgAdd } from 'public/assets/images';
 import { Dispatch, SetStateAction } from 'react';
 import styled from 'styled-components';
 import DropZone from '../../common/DropZone';
@@ -12,9 +11,7 @@ export default function UploadImage(props: IProps) {
   return (
     <div>
       <DropZone setFiles={setFiles} setImages={setImages}>
-        <StDropZoneDiv>
-          <div></div>
-        </StDropZoneDiv>
+        <StDropZoneDiv />
       </DropZone>
       <StInformationDiv>
         <p>당신의 집을 가장 잘 표현한 사진을</p>
@@ -25,26 +22,18 @@ export default function UploadImage(props: IProps) {
 }
 
 const StDropZoneDiv = styled.div`
-  position: relative;
-  margin-bottom: 24px;
-  margin-left: -10px;
+  width: 375px;
+  height: 222px;
+  margin: 0 auto;
   margin-top: 100px;
-  div {
-    width: 375px;
-    height: 214px;
-    margin: 0 auto;
-    background: url('/assets/images/img_add.svg');
-  }
+  background: url('/assets/images/img_add.svg');
+  cursor: pointer;
 `;
 
 const StInformationDiv = styled.div`
+  margin-top: 33px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
   text-align: center;
-  p {
-    font-family: Noto Sans KR;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 22px;
-    letter-spacing: 0em;
-    text-align: center;
-  }
 `;
