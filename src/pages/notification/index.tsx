@@ -5,6 +5,7 @@ import ImageDiv from '@src/components/common/ImageDiv';
 import { useRouter } from 'next/router';
 import Notification from '@src/components/notification/Notification';
 import { client } from '@src/services/libs/api';
+import SEO from '@src/components/common/SEO';
 
 export default function NotificationPage() {
   const router = useRouter();
@@ -20,26 +21,29 @@ export default function NotificationPage() {
   }, []);
 
   return (
-    <StMainContainer>
-      <StHeader>
-        <ImageDiv className="back" src={icBack} alt="뒤로 가기" onClick={handleClickPrevious} />
-        <h5>알림</h5>
-      </StHeader>
-      <StNotificationContainer>
-        {noticeList.map((info, idx) => (
-          <Notification
-            key={idx}
-            alarmId={info.alarm_id}
-            status={info.alarmStatus}
-            messageLink={info.viewMyNoticeImageResDTO.messageLink}
-            location={info.address}
-            title={info.viewMyNoticeImageResDTO.houseName}
-            img={`https://jipyo.link/${info.viewMyNoticeImageResDTO.filePath.split('/').pop()}`}
-            period={`${info.viewMyNoticeImageResDTO.startDate} - ${info.viewMyNoticeImageResDTO.endDate}`}
-          />
-        ))}
-      </StNotificationContainer>
-    </StMainContainer>
+    <>
+      <SEO title="알림" />
+      <StMainContainer>
+        <StHeader>
+          <ImageDiv className="back" src={icBack} alt="뒤로 가기" onClick={handleClickPrevious} />
+          <h5>알림</h5>
+        </StHeader>
+        <div>
+          {noticeList.map(({ alarm_id, alarmStatus, viewMyNoticeImageResDTO, address }) => (
+            <Notification
+              key={alarm_id}
+              alarmId={alarm_id}
+              status={alarmStatus}
+              messageLink={viewMyNoticeImageResDTO.messageLink}
+              location={address}
+              title={viewMyNoticeImageResDTO.houseName}
+              img={`https://jipyo.link/${viewMyNoticeImageResDTO.filePath.split('/').pop()}`}
+              period={`${viewMyNoticeImageResDTO.startDate} - ${viewMyNoticeImageResDTO.endDate}`}
+            />
+          ))}
+        </div>
+      </StMainContainer>
+    </>
   );
 }
 
@@ -62,5 +66,3 @@ const StHeader = styled.div`
     height: 27px;
   }
 `;
-
-const StNotificationContainer = styled.div``;

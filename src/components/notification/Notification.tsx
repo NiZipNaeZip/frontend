@@ -22,7 +22,7 @@ export default function Notification(props: IProps) {
   return (
     <StMainContainer>
       <div>
-        <img src={img} />
+        <ImageDiv className="thumbnail" src={img} blurDataURL={img} alt="" layout="fill" placeholder="blur" />
         <StContentContainer>
           <StTitle>{title}</StTitle>
           <div>
@@ -59,14 +59,20 @@ const StMainContainer = styled.div`
   height: 224px;
   border-radius: 0px;
   padding: 25px 0;
+
   & > div:first-child {
     display: flex;
-    img {
-      width: 103px;
-      height: 103px;
-      border-radius: 8px;
-      object-fit: cover;
-    }
+  }
+
+  & img {
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .thumbnail {
+    position: relative;
+    width: 103px;
+    height: 103px;
   }
 `;
 const StContentContainer = styled.div`
