@@ -1,8 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Dispatch, SetStateAction } from 'react';
+import { RegisterContext } from '@src/pages/register';
 
 interface PlaceInputContainerProps {
   setNextValid: Dispatch<SetStateAction<boolean>>;
@@ -16,11 +17,23 @@ function PlaceInputContainer(props: PlaceInputContainerProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDetail(e.target.value);
   };
-
+  const { setRegisterInfo } = useContext(RegisterContext);
   useEffect(() => {
     const passCondition = zoneCode && address && detail;
     setNextValid(passCondition ? true : false);
-  }, [detail]);
+    if (setRegisterInfo)
+      setRegisterInfo((prev) => {
+        return {
+          ...prev,
+          addressDTO: {
+            ...prev.addressDTO,
+            postalCode: Number(zoneCode),
+            address: String(address),
+            detailedAddress: detail,
+          },
+        };
+      });
+  }, [zoneCode, address, detail]);
 
   return (
     <StPlaceInputContainer>
