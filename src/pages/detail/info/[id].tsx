@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useEffect, useState } from 'react';
 import { icBack, icLike, icMark } from 'public/assets/icons';
-import BottomSheet from '@src/components/Register/BottomSheet';
+import BottomSheet from '@src/components/register/BottomSheet';
 import SEO from '@src/components/common/SEO';
 import { useRouter } from 'next/router';
 import { client } from '@src/services/libs/api';

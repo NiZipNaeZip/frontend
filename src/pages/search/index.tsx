@@ -1,5 +1,5 @@
 import SEO from '@src/components/common/SEO';
-import PlaceSearchBox from '@src/components/Register/PlaceSearchBox';
+import PlaceSearchBox from '@src/components/register/PlaceSearchBox';
 
 function Search() {
   return (

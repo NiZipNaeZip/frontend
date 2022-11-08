@@ -2,17 +2,17 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import useModal from '@src/hooks/useModal';
-import Button from '@src/components/Register/Button';
+import Button from '@src/components/register/Button';
 import ImageDiv from '@src/components/common/ImageDiv';
-import SelectHomeImage from '@src/components/Register/SelectHomeImage';
-import HomeInformation from '@src/components/Register/HomeInformation';
-import HomePrecuations from '@src/components/Register/HomePrecautions';
-import PlaceInputContainer from '@src/components/Register/PlaceInputContainer';
+import SelectHomeImage from '@src/components/register/SelectHomeImage';
+import HomeInformation from '@src/components/register/HomeInformation';
+import HomePrecuations from '@src/components/register/HomePrecautions';
+import PlaceInputContainer from '@src/components/register/PlaceInputContainer';
 import { icBack, icCloseBg } from 'public/assets/icons';
-import PeopleInformation from '@src/components/Register/PeopleInformation';
-import LinkShare from '@src/components/Register/LinkShare';
+import PeopleInformation from '@src/components/register/PeopleInformation';
+import LinkShare from '@src/components/register/LinkShare';
 import SEO from '@src/components/common/SEO';
-import AttractionJeju from '@src/components/Register/Attraction/AttractionJeju';
+import AttractionJeju from '@src/components/register/Attraction/AttractionJeju';
 
 export default function Register() {
   const router = useRouter();
