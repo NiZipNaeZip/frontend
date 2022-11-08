@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { SetStateAction, useMemo, useState, Dispatch, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import useModal from '@src/hooks/useModal';
@@ -13,7 +13,47 @@ import PeopleInformation from '@src/components/Register/PeopleInformation';
 import LinkShare from '@src/components/Register/LinkShare';
 import SEO from '@src/components/common/SEO';
 import AttractionJeju from '@src/components/Register/Attraction/AttractionJeju';
+import { RegisterInfoType } from '@src/types/register';
+import { createContext } from 'react';
 
+const initialRegisterInfo = {
+  addressDTO: {
+    address: '',
+    detailedAddress: '',
+    postalCode: 0,
+  },
+  houseAmenityDTO: {
+    activity: false,
+    beach: false,
+    culturalLife: false,
+    hotPlace: false,
+    olleTrail: false,
+    pickingTangerine: false,
+    sportsEquipment: false,
+    waterPlayEquipment: false,
+  },
+  houseInfoDTO: {
+    availablePeople: 0,
+    buildingType: '',
+    houseType: '',
+    numberOfHouse: '',
+    numberOfRooms: '',
+  },
+  houseIntroduction: '',
+  houseName: '',
+  messageLink: '',
+  precautionList: [''],
+  region: '',
+  userId: 0,
+};
+
+export const RegisterContext = createContext<{
+  registerInfo: RegisterInfoType | null;
+  setRegisterInfo: Dispatch<SetStateAction<RegisterInfoType>> | null;
+}>({
+  registerInfo: null,
+  setRegisterInfo: null,
+});
 export default function Register() {
   const router = useRouter();
   const [pageIdx, setPageIdx] = useState<number>(0);
@@ -21,7 +61,12 @@ export default function Register() {
   const [images, setImages] = useState<string[]>([]);
   const [representImg, setRepresentImg] = useState<string | null>(null);
   const [nextValid, setNextValid] = useState<boolean>(false);
+  const [registerInfo, setRegisterInfo] = useState<RegisterInfoType>(initialRegisterInfo);
+  const value = useMemo(() => ({ setRegisterInfo, registerInfo }), [setRegisterInfo, registerInfo]);
 
+  useEffect(() => {
+    console.log(registerInfo);
+  }, [registerInfo]);
   const handleClickPrevious = () => {
     //todo : 페이지 인덱스에 따라 다르게 동작
     if (pageIdx === 1 && files.length !== 0) {
@@ -81,7 +126,7 @@ export default function Register() {
   });
 
   return (
-    <>
+    <RegisterContext.Provider value={value}>
       <SEO title="집 등록" />
       <Modal />
       <div>
@@ -104,7 +149,7 @@ export default function Register() {
           )}
         </StFooter>
       </div>
-    </>
+    </RegisterContext.Provider>
   );
 }
 
