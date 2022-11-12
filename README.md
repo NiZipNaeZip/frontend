@@ -22,8 +22,8 @@
 ### 3. 주요 기능
 ![image](https://user-images.githubusercontent.com/58380158/195978845-ddaf267c-c712-429b-b40f-eb69abddadf8.png)
 ![image](https://user-images.githubusercontent.com/58380158/195978861-8d854912-c87c-426b-9472-3b194ef1277e.png)
-![image](https://user-images.githubusercontent.com/58380158/195978879-721e039d-ba61-42e6-be21-162bf6e98f67.png)
-![image](https://user-images.githubusercontent.com/58380158/195978900-2d1d6b79-de1e-4a10-ad30-e203d816bc5c.png)
+![image](https://user-images.githubusercontent.com/58380158/201467886-e74cb119-e839-4120-ae79-657c6f04536d.png)
+![image](https://user-images.githubusercontent.com/58380158/201467892-fe82ddaa-79c7-45df-a3fa-f0164c61ad7d.png)
 ![image](https://user-images.githubusercontent.com/58380158/195978910-b12939a0-fef7-41ae-a079-79db033ac1d2.png)
 ![image](https://user-images.githubusercontent.com/58380158/195978933-2577bf95-6c0f-4f7c-a3b0-1d89985b73e4.png)
 ![image](https://user-images.githubusercontent.com/58380158/195978949-2169bd4f-33f5-4923-a73e-74dd42fb162d.png)
