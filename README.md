@@ -1,4 +1,4 @@
-## <img align="left" src="https://user-images.githubusercontent.com/58380158/195978418-e86a5c51-afa6-4aac-acb4-8a2bae2b2922.png" width="100px" /> [니집내집](https://nizipnaezip.vercel.app/)
+## <img align="left" src="https://user-images.githubusercontent.com/58380158/195978418-e86a5c51-afa6-4aac-acb4-8a2bae2b2922.png" width="100px" />니집내집
 > 숙박비 없는 여행의 시작! 우리, 집 바꿔 살래요?
 
 ![image](https://user-images.githubusercontent.com/58380158/195978056-c119d203-37c6-421f-ade8-7976039c716a.png)</div>
